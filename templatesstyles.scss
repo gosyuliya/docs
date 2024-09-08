@@ -1,0 +1,46 @@
+@page {
+    size: a4 landscape;
+    margin: 10mm;
+} 
+
+@media print {
+    section + section ul {
+      break-before: auto !important;
+      break-inside: auto !important;
+    }    
+    section + section ol {
+      break-before: auto !important;
+      break-inside: auto !important; }
+    section + section pre {
+      break-before: avoid !important;
+      break-inside: auto !important; }
+    code {break-inside: auto !important;}
+    pre + span {break-inside: avoid !important;}
+    span + code {break-inside: avoid !important;}
+    p {break-inside: avoid !important; }
+    p + table {
+      break-before: avoid !important;
+      break-inside: auto !important;}
+    ul {break-inside: auto !important;}
+    h2 + table {break-inside: auto !important;}
+    table {break-inside: auto !important;}
+    p + div.highlight {
+      break-before: auto !important;
+      break-inside: avoid !important;}
+    div.highlight {
+      break-before: avoid !important;
+      break-inside: auto !important;}
+    section p + figure {
+      break-before: auto !important;
+      break-inside: avoid !important;
+      break-after: auto !important;
+    }
+    section h4 + div.highlight {
+      break-before: avoid !important;
+      break-inside: avoid !important;}
+  
+    article * + div.highlight, article * + div.tabbed-set, section + section * + div.highlight, section + section * + div.tabbed-set {
+        page-break-before: avoid !important;
+        break-inside: auto !important;
+    }
+}
