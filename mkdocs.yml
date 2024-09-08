@@ -62,10 +62,9 @@ theme:
   #    enabled: true # Включает/отключает plug-in
   #    exclude: # Исключает страницы из PDF
   #      - index.md
-
-# extra:
-#   version:
- #    provider: mike
+extra:
+  version:
+   provider: mike
 
 # repo_name: DocOpsHabr Docs
 # repo_url: https://github.com/docopshabr/docopshabr
