@@ -1,0 +1,74 @@
+site_name: Документация для Наш продукт
+
+nav:
+  - Руководство по установке:
+    - ig/index.md
+    - Создание репозитория:
+      - ig/repo_creation_gh.md
+      - ig/repo_creation_gl.md
+    - ig/mkdocs_installation.md
+  - Руководство администратора:
+    - ag/index.md
+    - ag/setup.md
+    - ag/pub_setup.md
+
+theme:
+  name: material
+  custom_dir: overrides
+  language: ru
+  logo: assets/logo.png
+  favicon: assets/logo_fav.png
+  palette: 
+    - scheme: default
+      toggle:
+        icon: material/brightness-7 
+        name: Ночь
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: День
+  features:
+    - navigation.instant # ускорение загрузки (SPA)
+    - navigation.tracking # динамический URL страницы 
+    - navigation.tabs # верхний уровень заголовков в горизонтальное меню
+    - navigation.tabs.sticky # горизонтальное меню не скрывается при прокрутке
+    - navigation.indexes # главные страницы разделов не отображаются в меню
+    - navigation.top # вкл. кнопку возврата наверх
+    - content.action.edit # вкл. редактирование страницы
+  # icon:
+  #   edit: material/pencil 
+  #   view: material/eye
+
+
+plugins:
+  - search:
+      lang: 
+        - en
+        - ru
+  - print-site:
+      add_to_navigation: true # Пункт "Распечатать PDF" в меню, см. след. парам. 
+      print_page_title: 'Распечатать PDF' # Название пункта, см. пред. парам.
+      add_print_site_banner: false # Ненужный банер на странице печати
+      add_table_of_contents: true # Включает содержание
+      toc_title: 'Содержание' # Название содержания
+      toc_depth: 6 # Количество уровней заголовков в содержании
+      add_full_urls: false # Отображение адресов ссылок, например Ссылка (https://site) 
+      enumerate_headings: false # Нумерация заголовков 
+      enumerate_figures: true # Нумерация рисунков
+      add_cover_page: true # Титульная страница 
+      cover_page_template: "" # Шаблон титульной страницы
+      path_to_pdf: "" # Путь к PDF
+      include_css: true # Переопределяет дефолтные CSS с целью кастомизации
+      enabled: true # Включает/отключает plug-in
+      exclude: # Исключает страницы из PDF
+        - index.md
+
+extra:
+  version:
+    provider: mike
+
+repo_name: DocOpsHabr Docs
+# repo_url: https://github.com/docopshabr/docopshabr
+repo_url: https://github.dev/docopshabr/docopshabr
+# edit_uri: edit/main/docs/
+edit_uri: blob/main/docs/
