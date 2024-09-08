@@ -60,7 +60,12 @@ code {
     line-height: 1.1 !important;
 }
 
-@font-face {
-    font-family: "LibreCaslonText-Regular" !important;
-    src: "/gosyuliya/docs/fonts/" !important;
+
+  @font-face {
+    font-family: "LibreCaslonText-Regular";
+    src: url("/docs/fonts/LibreCaslonText-Regular.ttf") format('truetype');
+  }
+  
+  :root {
+    --md-text-font: "LibreCaslonText-Regular"; 
   }
