@@ -46,7 +46,8 @@ plugins:
         - en
         - ru
   - print-site:
-      add_to_navigation: true # Пункт "Распечатать PDF" в меню, см. след. парам. 
+      add_to_navigation: true # Пункт "Распечатать PDF" в меню, см. след. парам.
+      debug_html: true 
       print_page_title: 'Распечатать PDF' # Название пункта, см. пред. парам.
       add_print_site_banner: false # Ненужный банер на странице печати
       add_table_of_contents: true # Включает содержание
