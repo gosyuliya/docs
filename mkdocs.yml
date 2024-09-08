@@ -18,8 +18,8 @@ theme:
   language: ru
   logo: assets/logo.png
   favicon: assets/logo_fav.png
-  font:
-    text: Open Sans
+  extra_css:
+    - templatesstyles.scss
   palette: 
     - scheme: default
       toggle:
