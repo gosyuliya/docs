@@ -30,9 +30,7 @@ theme:
         icon: material/brightness-4
         name: День
       palette:
-    # try other colors https://squidfunk.github.io/mkdocs-material/getting-started/#primary-colors
-    - primary: brown
-    - accent: deep orange
+
   features:
     - navigation.instant # ускорение загрузки (SPA)
     - navigation.tracking # динамический URL страницы 
