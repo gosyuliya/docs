@@ -63,7 +63,7 @@ code {
 
   @font-face {
     font-family: "LibreCaslonText-Regular" !important;
-    src: url("/fonts/LibreCaslonText-Regular.ttf") format('truetype') !important;
+    src: url("../fonts/LibreCaslonText-Regular.ttf") format('truetype') !important;
   }
   
   :root {

@@ -19,7 +19,7 @@ theme:
   logo: assets/logo.png
   favicon: assets/logo_fav.png
   extra_css:
-    - - stylesheets/extra.css
+    - stylesheets/extra.css
   palette: 
     - scheme: default
       toggle:
