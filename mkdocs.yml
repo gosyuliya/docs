@@ -18,6 +18,8 @@ theme:
   language: ru
   logo: assets/logo.png
   favicon: assets/logo_fav.png
+  font:
+    text: Roboto
   palette: 
     - scheme: default
       toggle:
