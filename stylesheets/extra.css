@@ -62,10 +62,10 @@ code {
 
 
   @font-face {
-    font-family: "LibreCaslonText-Regular";
-    src: url("/docs/fonts/LibreCaslonText-Regular.ttf") format('truetype');
+    font-family: "LibreCaslonText-Regular" !important;
+    src: url("docs/fonts/LibreCaslonText-Regular.ttf") format('truetype') !important;
   }
   
   :root {
-    --md-text-font: "LibreCaslonText-Regular"; 
+    --md-text-font: "LibreCaslonText-Regular" !important; 
   }
