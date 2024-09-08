@@ -19,7 +19,7 @@ theme:
   logo: assets/logo.png
   favicon: assets/logo_fav.png
   font:
-    text: Roboto
+    text: Open Sans
   palette: 
     - scheme: default
       toggle:
