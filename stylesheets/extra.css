@@ -63,7 +63,7 @@ code {
 
   @font-face {
     font-family: "LibreCaslonText-Regular";
-    src: url("https://github.com/gosyuliya/docs/tree/main/fonts/LibreCaslonText-Bold.ttf") format('truetype');
+    src: url("https://github.com/gosyuliya/docs/fonts/LibreCaslonText-Bold.ttf") format('truetype');
   }
   
   :root {
