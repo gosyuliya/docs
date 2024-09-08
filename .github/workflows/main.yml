@@ -29,6 +29,8 @@ jobs:
       - run: git fetch
       - run: pip install mike
       - run: mike deploy --push --update-aliases -b gh-pages 2.0 latest
+      - run: mkdir -p /usr/share/fonts/truetype/google-fonts
+      - run: find /docs/fonts/ -name "*.ttf" -exec install -m644 {} /usr/share/fonts/truetype/google-fonts/ \; || return 1
 
 # Публикация без версионирования
 # name: ci 
