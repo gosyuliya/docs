@@ -46,7 +46,7 @@
 }
 
 * {
-    font-family: LibreCaslonText-Regular !important;
+    font-family: LibreCaslonText-Bold !important;
     color: #666 !important;
     font-size: 12pt !important;
     line-height: 1.1 !important;
@@ -55,7 +55,7 @@
 }
   
 code {
-    font-family: 'LibreCaslonText-Regular' !important;
+    font-family: 'LibreCaslonText-Bold' !important;
     font-size: 10pt !important;
     line-height: 1.1 !important;
 }
@@ -63,9 +63,9 @@ code {
 
   @font-face {
     font-family: "LibreCaslonText-Regular";
-    src: url("/fonts/LibreCaslonText-Regular.ttf") format('truetype');
+    src: url("https://github.com/gosyuliya/docs/tree/main/fonts/LibreCaslonText-Bold.ttf") format('truetype');
   }
   
   :root {
-    --md-text-font: "LibreCaslonText-Regular" !important; 
+    --md-text-font: "LibreCaslonText-Bold" !important; 
   }
