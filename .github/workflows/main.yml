@@ -22,7 +22,9 @@ jobs:
           path: .cache
           restore-keys: |
             mkdocs-material-
-      - run: pip install mkdocs-material 
+      - run: pip install mkdocs-material
+      - run: pip install mkdocs-print-site-plugin
+      - run: pip install mkdocs-with-pdf 
       - run: git config --global user.name = "gosyuliya"
       - run: git config --global user.email = "this.mail.4.julia@gmail.com"
       - run: git fetch
