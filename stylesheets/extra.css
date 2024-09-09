@@ -45,27 +45,13 @@
     }
 }
 
-* {
-    font-family: LibreCaslonText-Bold !important;
-    color: #666 !important;
-    font-size: 12pt !important;
-    line-height: 1.1 !important;
-    margin-left: 0 !important;
-    padding-left: 0 !important;
-}
-  
-code {
-    font-family: 'LibreCaslonText-Bold' !important;
-    font-size: 10pt !important;
-    line-height: 1.1 !important;
+
+@font-face {
+    font-family: "Bitstream Vera Serif Bold";
+    src: url("https://mdn.github.io/css-examples/web-fonts/VeraSeBd.ttf");
 }
 
-
-  @font-face {
-    font-family: "LibreCaslonText-Regular";
-    src: url("https://github.com/gosyuliya/docs/fonts/LibreCaslonText-Bold.ttf") format('truetype');
-  }
   
   :root {
-    --md-text-font: "LibreCaslonText-Bold" !important; 
+    --md-text-font: "Bitstream Vera Serif Bold" !important; 
   }
