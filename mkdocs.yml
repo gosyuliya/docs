@@ -1,16 +1,18 @@
-site_name: Документация для платформы
+site_name: Документация для работы с платформой
 
 nav:
-  - Руководство по установке:
+  - Ученик:
     - ig/index.md
     - Создание проекта:
       - ig/repo_creation_gh.md
       - ig/repo_creation_gl.md
     - ig/mkdocs_installation.md
-  - Руководство администратора:
+  - Учитель:
     - ag/index.md
     - ag/setup.md
     - ag/pub_setup.md
+ # - Координатор:
+
 
 theme:
   name: material
