@@ -1,23 +1,7 @@
-# Welcome to MkDocs
+# Это приветственная страница
 
-Это первая версия
+Это предложение для написания пользовательской документации
 
-Я хочу чтобы здесь было лождлофыва
+## Отчет об использовании административной панели
 
-Это вторая версия
-
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
-
-## Commands
-
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+Ссылка на [отчет](https://docs.google.com/document/d/1lViaseAtni6aKj0bM9t45o7XNl_Km9eE/edit?usp=sharing&ouid=112383437388739349751&rtpof=true&sd=true)
