@@ -3,16 +3,16 @@ site_name: Документация для работы с платформой
 nav:
   - Ученик:
     - ig/index.md
-    - Создание проекта:
-      - ig/repo_creation_gh.md
-      - ig/repo_creation_gl.md
-    - ig/mkdocs_installation.md
+    - Работа с курсами:
+      - ig/projects.md
+      - ig/testing.md
+    - ig/olympiads.md
   - Учитель:
     - ag/index.md
-    - ag/setup.md
-    - ag/pub_setup.md
- # - Координатор:
-
+    - ag/teacher_courses.md
+    - ag/teacher_project.md
+  - Координатор:
+    - kg/index.md
 
 theme:
   name: material
