@@ -1,0 +1,35 @@
+<style type="text/css">
+
+/* делаем ширину карточек меньше, чтобы влезало  в три карточки в ряд на HD+ разрашениях */
+
+.md-typeset .grid {
+    grid-gap: 0.4rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 12rem), 1fr));
+    margin: 1em 0;
+}
+
+/* отображаем содержимое по центру */
+
+.md-typeset ul li p {
+    text-align: center;
+}
+
+/* В мобильной версии отображаем что влазит + убираем ссылку Подробнее" */
+
+@media screen and (max-width: 800px) {
+.md-typeset .grid {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 16rem), 1fr));
+}
+
+.md-typeset p:not(:first-child) {
+    display: none;
+}
+
+.md-typeset p:not(:last-child) {
+    display: block;
+}
+
+}
+
+</style>

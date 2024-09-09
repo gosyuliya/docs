@@ -20,20 +20,19 @@ theme:
   language: ru
   logo: assets/logo.png
   favicon: assets/logo_fav.png
+  # Светлая/темная темы
   palette: 
-    - scheme: default
+    - scheme: youtube
+      media: "(prefers-color-scheme: light)"
       toggle:
-        icon: material/brightness-7 
+        icon: material/lightbulb 
         name: Ночь
     - scheme: slate
+      media: "(prefers-color-scheme: dark)"
       toggle:
-        icon: material/brightness-4
+        icon: material/lightbulb-outline
         name: День
-      palette:
-  
-  extra_css: 
-    - extra.css
-
+    - primary: custom
   features:
     - navigation.instant # ускорение загрузки (SPA)
     - navigation.tracking # динамический URL страницы 
@@ -42,8 +41,12 @@ theme:
     - navigation.indexes # главные страницы разделов не отображаются в меню
     - navigation.top # вкл. кнопку возврата наверх
     - content.action.edit # вкл. редактирование страницы
+    - navigation.expand # развернуть боковое меню
 
-
+extra_css:
+  #- stylesheets/extra_v3.css
+  - "stylesheets/extra_v3.css"
+  
 plugins:
   - search:
       lang: 
