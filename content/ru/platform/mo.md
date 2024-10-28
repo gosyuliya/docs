@@ -1,9 +1,7 @@
 ---
 title: "MO"
 #description: ""
-#titleIcon: "fa-solid fa-star"
-weight: 1
-#titleIcon: "/images/star-solid.svg"
+weight: 2
 ---
 
 # Основные сведения об инстансе
