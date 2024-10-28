@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Техническая документация on Документация Платформы Цифриума</title>
-    <link>http://localhost:1313/tech_docs/</link>
+    <link>https://gosyuliya.github.io/docs/tech_docs/</link>
     <description>Recent content in Техническая документация on Документация Платформы Цифриума</description>
     <generator>Hugo</generator>
     <language>ru</language>
-    <atom:link href="http://localhost:1313/tech_docs/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://gosyuliya.github.io/docs/tech_docs/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

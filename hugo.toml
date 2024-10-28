@@ -1,11 +1,11 @@
-#baseURL = "https://gosyuliya.github.io/docs/"
-baseURL = "https://example.com/"
+baseURL = "https://gosyuliya.github.io/docs/"
+#baseURL = "https://example.com/"
 title = "Документация Платформы Цифриума"
 theme = "shadocs"
 rss = true
 defaultContentLanguage = "ru"
 enableEmoji            = false
-#enableGitInfo          = true
+enableGitInfo          = true
 metaDataFormat         = "yaml"
 
 [languages]
