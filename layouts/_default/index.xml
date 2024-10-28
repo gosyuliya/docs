@@ -1,0 +1,17 @@
+<rss version="2.0">
+    <channel>
+        <title>{{ .Site.Title }}</title>
+        <link>{{ .Site.BaseURL }}</link>
+        <description>{{ .Site.Description }}</description>
+        <lastBuildDate>{{ now.Format "Mon, 02 Jan 2006 15:04:05 MST" }}</lastBuildDate>
+
+        {{ range .Pages }}
+        <item>
+            <title>{{ .Title }}</title>
+            <link>{{ .Permalink }}</link>
+            <description>{{ .Summary }}</description>
+            <pubDate>{{ .Date }}</pubDate>
+        </item>
+        {{ end }}
+    </channel>
+</rss>

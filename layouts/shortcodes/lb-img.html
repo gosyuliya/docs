@@ -1,0 +1,12 @@
+{{ $src := "" }}
+{{ with .Get "src" }}{{ $src = . }}{{ else }}{{ errorf "missing value for param 'src': %s" .Position }}{{ end }}
+
+{{ $title := "" }}
+{{ with .Get "title" }}{{ $title = . }}{{ end }}
+
+{{ $lg := delimit (shuffle (seq 1 9)) "" }}
+{{ with .Get "lg" }}{{ $lg = . }}{{ end }}
+
+<a href="{{ $src }}" data-lightbox="{{ $lg }}" data-title="{{ $title }}" data-alt="{{ $title }}">;
+    <img src="{{ $src }}" class="img-fluid" alt="{{ $title }}">
+</a>

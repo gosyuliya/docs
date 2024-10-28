@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Частые вопросы on Документация Платформы Цифриума</title>
+    <link>http://localhost:1313/questions/</link>
+    <description>Recent content in Частые вопросы on Документация Платформы Цифриума</description>
+    <generator>Hugo</generator>
+    <language>ru</language>
+    <atom:link href="http://localhost:1313/questions/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GitHub</title>
+      <link>http://localhost:1313/questions/github/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/questions/github/</guid>
+      <description>&lt;h1 id=&#39;ошибки-deploy&#39;&gt;Ошибки deploy&lt;a href=&#39;#%d0%be%d1%88%d0%b8%d0%b1%d0%ba%d0%b8-deploy&#39; class=&#39;anchor&#39;&gt;#&lt;/a&gt;&#xA;&lt;/h1&gt;&lt;h2 id=&#39;github-pages-не-собирает-сайт&#39;&gt;GitHub Pages не собирает сайт&lt;a href=&#39;#github-pages-%d0%bd%d0%b5-%d1%81%d0%be%d0%b1%d0%b8%d1%80%d0%b0%d0%b5%d1%82-%d1%81%d0%b0%d0%b9%d1%82&#39; class=&#39;anchor&#39;&gt;#&lt;/a&gt;&#xA;&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Вводные:&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;Deploy Hugo site to Pages выдаёт ошибку:&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;Branch &amp;quot;main&amp;quot; is not allowed to deploy to github-pages due to environment protection rules.&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;br&gt;&lt;img src=&#34;http://localhost:1313/images/gh_1.png&#34; align=&#34;left&#34; /&gt;&lt;br clear=&#34;left&#34;&gt;&lt;br&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Решение:&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;Проверьте разрешения для GitHub Pages&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;Убедитесь, что в настройках репозитория GitHub Pages разрешено публиковаться с ветки, выбранной в Workflow-файле (например, main).&lt;/p&gt;&#xA;&lt;p&gt;Настройки репозитория &lt;strong&gt;Settings&lt;/strong&gt; → &lt;strong&gt;Environments&lt;/strong&gt; → &lt;strong&gt;github-pages&lt;/strong&gt; → Измените название разрешенной ветки.&lt;/p&gt;&#xA;&lt;p&gt;&lt;br&gt;&lt;img src=&#34;http://localhost:1313/images/gh_2.png&#34; alt=&#34;альтернативный текст&#34; align=&#34;left&#34; /&gt;&lt;br clear=&#34;left&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;br&gt;&lt;img src=&#34;http://localhost:1313/images/gh_3.png&#34; alt=&#34;альтернативный текст&#34; align=&#34;left&#34; /&gt;&lt;br clear=&#34;left&#34;&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
