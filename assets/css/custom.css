@@ -14,13 +14,6 @@
   margin-bottom: 1em;
 }
 
-.align-left {
-  display: block;
-  margin: 0;
-  max-width: 100%; /* Ограничивает ширину изображения */
-  height: auto;    /* Сохраняет пропорции */
-}
-
 /* Размер шрифта заголовков 1-6 уровней*/
 h1 {
     font-size: 1.7rem;
@@ -54,4 +47,5 @@ body {
 img {
     max-width: 80%;
     height: auto;
+    float: left;
 }

@@ -463,28 +463,52 @@
 </h2><p><strong>Вводные:</strong></p>
 <p>Deploy Hugo site to Pages выдаёт ошибку:</p>
 <p><code>Branch &quot;main&quot; is not allowed to deploy to github-pages due to environment protection rules.</code></p>
-<p><br><img src="/images/gh_1.png" align="left" /><br clear="left"><br></p>
+<p><br><img
+  src="/docs/images/gh_1.png"
+  alt="I&rsquo;m an image"
+  class="I&rsquo;m an image"/>
+<br clear="left"><br></p>
 <p><strong>Решение:</strong></p>
 <ol>
 <li>
 <p><strong>Проверьте разрешения для GitHub Pages</strong></p>
 <p>Убедитесь, что в настройках репозитория GitHub Pages разрешено публиковаться с ветки, выбранной в Workflow-файле (например, main).</p>
 <p>Настройки репозитория <strong>Settings</strong> → <strong>Environments</strong> → <strong>github-pages</strong> → Измените название разрешенной ветки.</p>
-<p><br><img src="/images/gh_2.png" alt="альтернативный текст" align="left" /><br clear="left"></p>
-<p><br><img src="/images/gh_3.png" alt="альтернативный текст" align="left" /><br clear="left"></p>
-<p><br><img src="/images/gh_4.png" alt="альтернативный текст" align="left" /><br clear="left"><br></p>
+<p><br><img
+  src="/docs/images/gh_2.png"
+  alt="I&rsquo;m an image"
+  class="I&rsquo;m an image"/>
+<br clear="left"></p>
+<p><br><img
+  src="/docs/images/gh_3.png"
+  alt="I&rsquo;m an image"
+  class="I&rsquo;m an image"/>
+<br clear="left"></p>
+<p><br><img
+  src="/docs/images/gh_4.png"
+  alt="I&rsquo;m an image"
+  class="I&rsquo;m an image"/>
+<br clear="left"><br></p>
 </li>
 <li>
 <p><strong>Измените источник для деплоя GitHub Pages</strong></p>
 <p>Перейдите в настройки репозитория и проверьте, какая ветка выбрана для публикации на GitHub Pages:</p>
 <p>Настройки репозитория <strong>Settings</strong> → <strong>Pages</strong> → Установите источник публикации.</p>
-<p><br><img src="/images/gh_5.png" alt="альтернативный текст" align="left" /><br clear="left"><br></p>
+<p><br><img
+  src="/docs/images/gh_5.png"
+  alt="I&rsquo;m an image"
+  class="I&rsquo;m an image"/>
+<br clear="left"><br></p>
 </li>
 <li>
 <p><strong>Настройте автоматический деплой через Actions с другой ветки</strong></p>
 <p>При использывании GitHub Actions для деплоя, проверьте, чтобы Action был настроен на пуш в ветку, которая разрешена для деплоя.
 Добавьте или измените команды в файле .yml для Actions.</p>
-<p><br><img src="/images/gh_6.png" alt="альтернативный текст" align="left" /><br clear="left"></p>
+<p><br><img
+  src="/docs/images/gh_6.png"
+  alt="I&rsquo;m an image"
+  class="I&rsquo;m an image"/>
+<br clear="left"><br></p>
 </li>
 </ol>
 </div><div class="column is-sticky is-paddingless" id="tocWrapper">
