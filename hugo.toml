@@ -27,8 +27,8 @@ metaDataFormat         = "yaml"
   navbarInfo         = false
   #enableSearch       = false
   search             = true
-  relativeURLs       = false
-  baseURL            = "/"
+  relativeURLs       = true
+  #baseURL            = "/"
 
 [outputs]
   home = ["HTML", "JSON"]

@@ -2,6 +2,8 @@
 title: "GitHub"
 description: "Здесь находятся ответы на вопросы, связанные с платформой GitHub"
 weight: 1
+_build:
+  publishResources: false
 ---
 
 # Ошибки deploy
