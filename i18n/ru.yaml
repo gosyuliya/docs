@@ -8,12 +8,12 @@
   translation: 'Убрать панель'
 - id: banner_default_content
   translation: |
-    You are viewing version ***{{- .Site.Params.currentversion -}}*** of this website.
-    For an up-to-date documentation, please check the [latest version]({{- .Site.Params.latestversionurl -}}).
+    Вы просматриваете версию ***{{- .Site.Params.currentversion -}}*** этого веб-сайта.
+    Для получения актуальной документации проверьте [последнюю версию]({{- .Site.Params.latestversionurl -}}).
 - id: toc_title
   translation: 'Содержание:'
 - id: toc_backtotop
-  translation: 'Back to top'
+  translation: 'Вернуться наверх'
 - id: navbar_label_print
   translation: 'Печать'
 - id: navbar_label_qrcode
@@ -21,7 +21,7 @@
 - id: navbar_label_shortcuts
   translation: 'Горячие клавиши'
 - id: navbar_label_taxonomies
-  translation: 'Taxonomies'
+  translation: 'Таксономии'
 - id: navbar_label_versions
   translation: 'Версии'
 - id: navbar_label_info
@@ -29,15 +29,15 @@
 - id: navbarinfo_title
   translation: 'О нас'
 - id: navbarshortcuts_title
-  translation: 'Keyboard shortcuts'
+  translation: 'Горячии клавиши'
 - id: 1_info_keys_wording
   translation: 'Shift,i'
 - id: 1_info_wording
-  translation: 'Show website information'
+  translation: 'Показать информацию о веб-сайте'
 - id: 2_shortcuts_keys_wording
   translation: 'Shift,k'
 - id: 2_shortcuts_wording
-  translation: 'Show shortcuts'
+  translation: 'Показать ярлыки'
 - id: 3_home_keys_wording
   translation: 'Shift,h'
 - id: 3_home_wording
@@ -45,70 +45,70 @@
 - id: 4_search_keys_wording
   translation: 'Shift,f'
 - id: 4_search_wording
-  translation: 'Find on website'
+  translation: 'Найти на сайте'
 - id: 5_togglesidebar_keys_wording
   translation: 'Shift,m'
 - id: 5_togglesidebar_wording
-  translation: 'Collapse/Uncollapse sidebar'
+  translation: 'Свернуть/развернуть боковую панель'
 - id: 6_toggletoc_keys_wording
   translation: 'Shift,t'
 - id: 6_toggletoc_wording
-  translation: 'Collapse/Uncollapse table of contents'
+  translation: 'Свернуть/Развернуть оглавление'
 - id: 7_backtotop_keys_wording
   translation: 'Shift,↑'
 - id: 7_backtotop_wording
-  translation: 'Go to the top of the page'
+  translation: 'Перейти в начало страницы'
 - id: 8_gotobottom_keys_wording
   translation: 'Shift,↓'
 - id: 8_gotobottom_wording
-  translation: 'Go to the bottom of the page'
+  translation: 'Перейти в конец страницы'
 - id: 9_print_keys_wording
   translation: 'Shift,p'
 - id: 9_print_wording
-  translation: 'Print current page'
+  translation: 'Распечатать текущую страницу'
 - id: 10_qrcode_keys_wording
   translation: 'Shift,q'
 - id: 10_qrcode_wording
-  translation: 'Show current page QR code'
+  translation: 'Показать QR-код текущей страницы'
 - id: 11_closemodals_keys_wording
   translation: 'Escape'
 - id: 11_closemodals_wording
-  translation: 'Close modals'
+  translation: 'Закрыть модальные окна'
 - id: shortcode_collapsible
-  translation: 'Expand/Collapse'
+  translation: 'Развернуть/Свернуть'
 - id: no_data
   translation: ''
 - id: empty_description
-  translation: 'No description available'
+  translation: 'Нет описания'
 - id: read_more
-  translation: 'Read more'
+  translation: 'Читать далееe'
 - id: helper_loading
-  translation: 'Loading'
+  translation: 'Загрузка'
 - id: code_copy_before
-  translation: 'Copy to clipboard'
+  translation: 'Скопировать в буфер обмена'
 - id: code_copy_after
-  translation: 'Copied to clipboard'
+  translation: 'Скопировано в буфер обмена'
 - id: download_as_svg
-  translation: 'Download as SVG'
+  translation: 'Скачать в формате SVG'
 - id: 404_title
-  translation: "Oops, we can't find the page you're looking for."
+  translation: "К сожалению, мы не можем найти страницу, которую вы ищете."
 - id: 404_footer
-  translation: 'Back to homepage'
+  translation: 'Вернуться на домашнюю страницу'
 - id: intro_error_title
-  translation: 'Error !!'
+  translation: 'Ошибка !!'
 - id: intro_error
-  translation: "Invalid JSON. Please check the JSON data given inside the 'intro' shortcode."
+  translation: "Неверный JSON. Пожалуйста, проверьте данные JSON, указанные в коротком коде «intro»."
 - id: intro_empty
-  translation: "Attribute <strong><i>steps</i></strong> not found. Please check the JSON definition given inside the 'intro' shortcode"
+  translation: "Атрибут <strong><i>steps</i></strong> не найден. Пожалуйста, проверьте определение JSON, указанное в коротком коде «intro»."
 - id: intro_prevlabel
-  translation: 'Previous'
+  translation: 'Предыдущий'
 - id: intro_nextlabel
-  translation: 'Next'
+  translation: 'Следующий'
 - id: intro_skiplabel
   translation: '✗'
 - id: intro_donelabel
-  translation: 'Done'
+  translation: 'Сделано'
 - id: na_common
-  translation: 'Not available'
+  translation: 'Отсутствует'
 - id: highcharts_error
-  translation: 'Highcharts rendering unavailable'
+  translation: 'Отрисовка Highcharts недоступна.'

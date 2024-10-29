@@ -83,7 +83,7 @@ weight: 1
 
    * **Технические сведения и спецификации**
 
-   * **API (Application Programming Interface)**
+   * **API**
 
    * **Протоколы интеграции**
 

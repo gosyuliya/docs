@@ -1,5 +1,5 @@
 ---
-title: "Текущее окружение"
+title: "Платформа"
 description: "Описание функциональных особенностей Платформы Цифриума"
 titleIcon: "fa-solid fa-shapes"
 weight: 2
