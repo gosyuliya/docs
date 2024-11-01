@@ -2,22 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://gosyuliya.github.io/docs/platform/edu/</loc>
-    <lastmod>2024-10-28T20:42:00+03:00</lastmod>
-  </url><url>
     <loc>https://gosyuliya.github.io/docs/questions/github/</loc>
     <lastmod>2024-10-28T21:59:57+03:00</lastmod>
   </url><url>
-    <loc>https://gosyuliya.github.io/docs/introduction/</loc>
-    <lastmod>2024-10-28T21:59:57+03:00</lastmod>
+    <loc>https://gosyuliya.github.io/docs/library/books/analitics/</loc>
   </url><url>
     <loc>https://gosyuliya.github.io/docs/team/brand/</loc>
     <lastmod>2024-10-28T20:42:00+03:00</lastmod>
   </url><url>
-    <loc>https://gosyuliya.github.io/docs/library/textbook/</loc>
+    <loc>https://gosyuliya.github.io/docs/platform/main/</loc>
+  </url><url>
+    <loc>https://gosyuliya.github.io/docs/platform/main/pl_1/</loc>
+  </url><url>
+    <loc>https://gosyuliya.github.io/docs/introduction/</loc>
+    <lastmod>2024-10-29T09:26:40+03:00</lastmod>
+  </url><url>
+    <loc>https://gosyuliya.github.io/docs/library/terms/</loc>
     <lastmod>2024-10-28T13:18:19+03:00</lastmod>
   </url><url>
     <loc>https://gosyuliya.github.io/docs/platform/edu/student/</loc>
+    <lastmod>2024-10-28T20:42:00+03:00</lastmod>
+  </url><url>
+    <loc>https://gosyuliya.github.io/docs/platform/edu/</loc>
     <lastmod>2024-10-28T20:42:00+03:00</lastmod>
   </url><url>
     <loc>https://gosyuliya.github.io/docs/platform/mo/</loc>
@@ -26,11 +32,10 @@
     <loc>https://gosyuliya.github.io/docs/team/comm/</loc>
     <lastmod>2024-10-28T20:42:00+03:00</lastmod>
   </url><url>
-    <loc>https://gosyuliya.github.io/docs/platform/</loc>
-    <lastmod>2024-10-28T21:59:57+03:00</lastmod>
+    <loc>https://gosyuliya.github.io/docs/library/books/</loc>
   </url><url>
-    <loc>https://gosyuliya.github.io/docs/library/terms/</loc>
-    <lastmod>2024-10-28T13:18:19+03:00</lastmod>
+    <loc>https://gosyuliya.github.io/docs/platform/</loc>
+    <lastmod>2024-10-29T09:26:40+03:00</lastmod>
   </url><url>
     <loc>https://gosyuliya.github.io/docs/platform/edu/teacher/</loc>
     <lastmod>2024-10-28T21:59:57+03:00</lastmod>
@@ -42,10 +47,9 @@
     <lastmod>2024-10-28T20:42:00+03:00</lastmod>
   </url><url>
     <loc>https://gosyuliya.github.io/docs/admin_panel/</loc>
-    <lastmod>2024-10-28T21:59:57+03:00</lastmod>
+    <lastmod>2024-10-29T09:26:40+03:00</lastmod>
   </url><url>
-    <loc>https://gosyuliya.github.io/docs/library/dev_tools/</loc>
-    <lastmod>2024-10-28T13:18:19+03:00</lastmod>
+    <loc>https://gosyuliya.github.io/docs/library/links/</loc>
   </url><url>
     <loc>https://gosyuliya.github.io/docs/guides/</loc>
     <lastmod>2024-10-28T20:42:00+03:00</lastmod>

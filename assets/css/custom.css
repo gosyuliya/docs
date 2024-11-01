@@ -1,18 +1,4 @@
-.main-content {
-  display: flex;
-  flex-direction: column;
-  gap: 2em;
-}
-
-.about, .latest-posts, .contact-info {
-  padding: 1em;
-  background-color: #f9f9f9;
-  border-radius: 5px;
-}
-
-.latest-posts .posts-list article {
-  margin-bottom: 1em;
-}
+/* assets/css/custom.css */
 
 /* Размер шрифта заголовков 1-6 уровней*/
 h1 {

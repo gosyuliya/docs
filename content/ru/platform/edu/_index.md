@@ -1,7 +1,7 @@
 ---
 title: "EDU"
 #description: ""
-weight: 1
+weight: 2
 ---
 
 # Основные сведения об инстансе
