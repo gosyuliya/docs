@@ -21,10 +21,6 @@ weight: 1
 
 - [**Основное**](platform/main/_index.md)
    - [**Список инстансов для передачи заказчикам**](platform/main/pl_1.md)
-- [**EDU**](platform/edu/_index.md)
-- [**MO**](platform/mo.md)
-- [**БАС УНТИ**](platform/unti.md)
-- [**ПРО ЕГЭ**](platform/ege.md)
 
 ## Панель администратора 
    

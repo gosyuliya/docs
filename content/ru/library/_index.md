@@ -2,6 +2,7 @@
 title: "Библиотека"
 titleIcon: "fa-solid fa-book"
 weight: 7
+comments: false
 ---
 # Термины и определения
 

@@ -26,6 +26,35 @@
       {{- partial "theme/content-title.html" (dict "titleId" ($.Scratch.Get "titleId") "title" .) -}}
     {{- end -}}
     {{- .Content -}}
+
+
+<!-- CSS для уменьшения размера блока комментариев и отступов -->
+<style>
+  #disqus_thread {
+    max-width: 900px;
+    margin: 40px auto;
+    padding-top: 40px;
+  }
+</style>    
+
+    <!-- Disqus Comments Section -->
+    {{- if not (or (isset .Params "comments") (and (isset .Params "comments") (eq .Params.comments false))) -}}
+    <div id="disqus_thread"></div>
+    <script>
+      var disqus_config = function () {
+        this.page.url = "{{ .Permalink }}";
+        this.page.identifier = "{{ .Permalink }}";
+      };
+      (function() {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://gosyuliya.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    {{- end -}}
+
   </div>
   {{- if ($.Scratch.Get "isToc") -}}
     {{- partial "theme/toc.html" . -}}

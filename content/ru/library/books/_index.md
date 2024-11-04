@@ -1,6 +1,7 @@
 ---
 title: "Книги"
 weight: 2
+comments: false
 ---
 **Содержание раздела:**
 

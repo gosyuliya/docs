@@ -2,6 +2,7 @@
 title: "Частые вопросы"
 titleIcon: "fa-solid fa-circle-question"
 weight: 6
+comments: false
 ---
 
 # GitHub
