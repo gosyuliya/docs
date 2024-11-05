@@ -3,7 +3,7 @@
   <head><meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="generator" content="Hugo 0.136.4">
-<meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="description" content="Описание функциональных особенностей панели админстратора" /><title>Панель Администратора | Документация Платформы Цифриума</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" /><title>Шаблоны для конфигурации backend сервисов с OPA | Документация Платформы Цифриума</title>
 
 <link
   rel="icon"
@@ -307,14 +307,14 @@
       </div>
     </div></ul></li>
       </div>
-    </div><div class="card is-fs-expandable-icon is-sidebar-active"><div class="card-header is-single-link">
+    </div><div class="card is-fs-expandable-icon"><div class="card-header is-single-link">
       <a
         href='/docs/admin_panel/'
         class='card-header-title'>
         <i class='fa-solid fa-user-gear fa-lg'></i></a></div>
       </div><div class="is-expandable">
-      <div class="is-sidebar-list-wrapper"><li class="is-marginless is-tree-active"><div
-            class="card is-sidebar-active"id='sidebarActiveEntry'><div class="card-header is-single-link">
+      <div class="is-sidebar-list-wrapper"><li class="is-marginless"><div
+            class="card"><div class="card-header is-single-link">
       <a
         href='/docs/admin_panel/'
         class='card-header-title'
@@ -337,25 +337,25 @@
         <i class='fa-solid fa-shoe-prints fa-lg'></i><p class="pt-0 pb-0 pr-2 pl-1">Пошаговые инструкции</p></a></div>
           </div></li>
       </div>
-    </div><div class="card is-fs-expandable-icon"><div class="card-header">
+    </div><div class="card is-fs-expandable-icon is-sidebar-active"><div class="card-header">
       <a
         href='/docs/tech_docs/'
         class='card-header-title'>
         <i class='fa-solid fa-code-pull-request fa-lg'></i></a></div>
       </div><div class="is-expandable">
-      <div class="is-sidebar-list-wrapper"><li class="is-marginless is-entries-expandable is-entries-shrinked"><div
+      <div class="is-sidebar-list-wrapper"><li class="is-marginless is-tree-active is-entries-expandable is-entries-expanded"><div
             class="card"><div class="card-header">
       <a
         href='/docs/tech_docs/'
         class='card-header-title'
           title='Техническая документация'>
-        <i class='fa-solid fa-code-pull-request fa-lg'></i><p class="pt-0 pb-0 pr-2 pl-1">Техническая документация</p></a><a class="card-header-icon is-icon-expandable is-paddingless is-icon-shrinked">
+        <i class='fa-solid fa-code-pull-request fa-lg'></i><p class="pt-0 pb-0 pr-2 pl-1">Техническая документация</p></a><a class="card-header-icon is-icon-expandable is-paddingless is-icon-expanded">
                 <span class='icon'></span>
               </a>
             </div>
-          </div><ul class="is-marginless"><div class="">
+          </div><ul class="is-marginless is-tree-active"><div class="">
       <div class=""><li class="is-marginless"><div
-            class="card"><div class="card-header is-single-link">
+            class="card is-sidebar-active"id='sidebarActiveEntry'><div class="card-header is-single-link">
       <a
         href='/docs/tech_docs/pl_1/'
         class='card-header-title'
@@ -524,139 +524,174 @@
 </div>
 <div id="sidebarMobileWrapper" class="column is-narrow is-hidden-desktop"></div>
 <div class="columns is-mobile is-marginless is-scroll-smooth has-toc" id="contentContainer">
-  <div class="column" id="content"><div id="contentTitle">Панель Администратора</div>
-<p><strong>Содержание раздела:</strong></p>
-<ul>
-<li><strong>Обучение</strong>
-<ul>
-<li><strong>Курсы</strong></li>
-<li><strong>Мастер-курсы</strong></li>
-<li><strong>Дисциплины</strong></li>
-<li><strong>Расписание</strong></li>
-<li><strong>Цели обучения</strong></li>
-<li><strong>Учебные года</strong></li>
-<li><strong>Новый рубрикатор</strong></li>
-<li><strong>Тесты</strong></li>
-<li><strong>Пробные экзамены</strong></li>
-<li><strong>Локации для вебинарных</strong></li>
-<li><strong>Вебинарные</strong></li>
-<li><strong>Мероприятия</strong></li>
-<li><strong>Циклы мероприятий</strong></li>
+  <div class="column" id="content"><div id="contentTitle">Шаблоны для конфигурации backend сервисов с OPA</div>
+<h1 id='helm-chart-c-шаблонами-для-acr-pdp-sidecar'>HELM chart c шаблонами для ACR PDP sidecar<a href='#helm-chart-c-%d1%88%d0%b0%d0%b1%d0%bb%d0%be%d0%bd%d0%b0%d0%bc%d0%b8-%d0%b4%d0%bb%d1%8f-acr-pdp-sidecar' class='anchor'>#</a>
+</h1><p><em>Этот Helm Chart содержит шаблоны для конфигурации backend-сервисов с Open Policy Agent (OPA), работающим как sidecar для Policy Decision Point (PDP).</em></p>
+<h2 id='настройка-зависимости-helm-chart'>Настройка зависимости HELM-CHART<a href='#%d0%bd%d0%b0%d1%81%d1%82%d1%80%d0%be%d0%b9%d0%ba%d0%b0-%d0%b7%d0%b0%d0%b2%d0%b8%d1%81%d0%b8%d0%bc%d0%be%d1%81%d1%82%d0%b8-helm-chart' class='anchor'>#</a>
+</h2><p>Для подключения зависимости добавьте в <code>Chart.yaml</code> следующую конфигурацию:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">dependencies</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">acr-pdp</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">version</span>: <span style="color:#ae81ff">^1.0.0-0</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">repository</span>: <span style="color:#e6db74">&#34;@dbp&#34;</span>
+</span></span></code></pre></div><h2 id='содержимое-valuesyaml'>Содержимое <code>values.yaml</code><a href='#%d1%81%d0%be%d0%b4%d0%b5%d1%80%d0%b6%d0%b8%d0%bc%d0%be%d0%b5-valuesyaml' class='anchor'>#</a>
+</h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">pdpSidecar</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">policiesFilePath</span>: <span style="color:#e6db74">&#34;files/policies/**&#34;</span>
+</span></span></code></pre></div><ul>
+<li><strong>policiesFilePath</strong> — указывает путь к файлам политик для OPA (чаще всего файлы форматов <code>.rego</code> или <code>.json</code>).</li>
 </ul>
-</li>
-<li><strong>Теория</strong>
-<ul>
-<li><strong>Темы (старые)</strong></li>
-<li><strong>Уровни сложности</strong></li>
-<li><strong>Склейка тем</strong></li>
-<li><strong>Много связей</strong></li>
-<li><strong>Выбранные в учебнике</strong></li>
-<li><strong>Подборки</strong></li>
-</ul>
-</li>
-<li><strong>Практика</strong>
-<ul>
-<li><strong>Задачи</strong></li>
-<li><strong>Тренажёры выживания</strong></li>
-<li><strong>Ручная проверка</strong></li>
-<li><strong>Учебные программы</strong></li>
-<li><strong>Сложности задач</strong></li>
-<li><strong>Экзамены</strong></li>
-<li><strong>Старый рубрикатор</strong></li>
-<li><strong>Ответы</strong></li>
-<li><strong>Предложенные ответы</strong></li>
-<li><strong>Категории</strong></li>
-<li><strong>Теги</strong></li>
-<li><strong>Библиотеки</strong></li>
-<li><strong>Генераторы</strong></li>
-<li><strong>Блоки</strong></li>
-</ul>
-</li>
-<li><strong>Пользователи</strong>
-<ul>
-<li><strong>Пользователи</strong></li>
-<li><strong>Тестовые пользователи</strong></li>
-<li><strong>Коды приглашения</strong></li>
-<li><strong>Олимпиадные данные пользователей</strong></li>
-<li><strong>Теги пользователей</strong></li>
-<li><strong>Перевод в следующий класс</strong></li>
-<li><strong>Типы документов</strong></li>
-<li><strong>Документы</strong></li>
-<li><strong>Образовательные учреждения учеников</strong></li>
-<li><strong>Массовое добавление доступов</strong></li>
-<li><strong>Массовое удаление доступов</strong></li>
-<li><strong>Уведомления пользователей</strong></li>
-<li><strong>ULMS комнаты</strong></li>
-<li><strong>Массовое добавление бонусов</strong></li>
-<li><strong>Список</strong></li>
-<li><strong>Типы выплат</strong></li>
-<li><strong>Массовые выплаты</strong></li>
-<li><strong>Трекинговый номер удостоверения</strong>
-<ul>
-<li><strong>Массовая выдача документов</strong></li>
-<li><strong>Пакеты курсов для школ</strong></li>
-<li><strong>Админы</strong></li>
-<li><strong>Роли админа</strong></li>
-<li><strong>Шаблоны сертификатов</strong></li>
-<li><strong>Импорт тегов пользователей</strong></li>
-<li><strong>Интересы</strong></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><strong>Контент</strong>
-<ul>
-<li><strong>Контентные страницы</strong></li>
-<li><strong>Загрузки</strong></li>
-<li><strong>Отзывы</strong></li>
-<li><strong>Обратная связь</strong></li>
-<li><strong>Методические материалы</strong></li>
-<li><strong>Видеоролики</strong></li>
-<li><strong>Элементы озвучки</strong></li>
-<li><strong>Элементы меню</strong></li>
-<li><strong>Магазин персонажа</strong></li>
-</ul>
-</li>
-<li><strong>Геобаза</strong>
-<ul>
-<li><strong>Школы</strong></li>
-<li><strong>Типы учреждений</strong></li>
-<li><strong>Страны</strong></li>
-<li><strong>Регионы</strong></li>
-<li><strong>Типы населённых пунктов</strong></li>
-<li><strong>Города</strong></li>
-<li><strong>Типы улиц</strong></li>
-</ul>
-</li>
-<li><strong>Маркетинг</strong>
-<ul>
-<li><strong>Акции и продукты</strong></li>
-<li><strong>Источники и приглашения</strong></li>
-<li><strong>Другое</strong></li>
-</ul>
-</li>
-<li><strong>Олимпиады</strong></li>
-<li><strong>Репетиторы</strong></li>
-<li><strong>ЭДШ</strong>
-<ul>
-<li><strong>Основное</strong></li>
-<li><strong>Аттестация</strong></li>
-</ul>
-</li>
-<li><strong>Теги</strong></li>
-<li><strong>Настройки</strong>
-<ul>
-<li><strong>Оплаты</strong></li>
-<li><strong>Другое</strong></li>
-<li><strong>Акции</strong></li>
-<li><strong>Каталог</strong></li>
-<li><strong>Заявки</strong></li>
-</ul>
-</li>
-<li><strong>WK</strong></li>
-<li><strong>WK Сервисы</strong></li>
-<li><strong>Ещё</strong></li>
-</ul>
+<p>Все остальные параметры можно переопределить по мере необходимости: порт сервиса, параметры контейнера Docker, таймауты и другие настройки.</p>
+<h2 id='конфигурация-configmap'>Конфигурация ConfigMap<a href='#%d0%ba%d0%be%d0%bd%d1%84%d0%b8%d0%b3%d1%83%d1%80%d0%b0%d1%86%d0%b8%d1%8f-configmap' class='anchor'>#</a>
+</h2><p>Для хранения политик OPA требуется создать отдельный шаблон <strong>ConfigMap</strong>.
+Включите следующий код в шаблон ConfigMap:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>{{- <span style="color:#ae81ff">include &#34;acr-pdp.configmap&#34; . -}}</span>
+</span></span></code></pre></div><p>Этот шаблон будет автоматически генерировать ConfigMap с содержимым из файлов политик OPA, расположенных по указанному пути.</p>
+<h2 id='конфигурация-портов-сервиса'>Конфигурация портов сервиса<a href='#%d0%ba%d0%be%d0%bd%d1%84%d0%b8%d0%b3%d1%83%d1%80%d0%b0%d1%86%d0%b8%d1%8f-%d0%bf%d0%be%d1%80%d1%82%d0%be%d0%b2-%d1%81%d0%b5%d1%80%d0%b2%d0%b8%d1%81%d0%b0' class='anchor'>#</a>
+</h2><p>Для объявления порта, используемого контейнером PDP, добавьте следующий код в шаблон сервиса в раздел с массивом портов (<code>ports</code>):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>{{- <span style="color:#ae81ff">include &#34;acr-pdp.sidecar.port&#34; . | nindent 4}}</span>
+</span></span></code></pre></div><h2 id='конфигурация-контейнеров'>Конфигурация контейнеров<a href='#%d0%ba%d0%be%d0%bd%d1%84%d0%b8%d0%b3%d1%83%d1%80%d0%b0%d1%86%d0%b8%d1%8f-%d0%ba%d0%be%d0%bd%d1%82%d0%b5%d0%b9%d0%bd%d0%b5%d1%80%d0%be%d0%b2' class='anchor'>#</a>
+</h2><h3 id='добавление-аннотаций'>Добавление аннотаций`<a href='#%d0%b4%d0%be%d0%b1%d0%b0%d0%b2%d0%bb%d0%b5%d0%bd%d0%b8%d0%b5-%d0%b0%d0%bd%d0%bd%d0%be%d1%82%d0%b0%d1%86%d0%b8%d0%b9' class='anchor'>#</a>
+</h3><p>В секции <code>metadata</code> шаблона будущих Pod (например, в шаблоне Deployment или StatefulSet) добавьте аннотации с помощью <code>acr-pdp.sidecar.label-logging</code> следующим образом:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">template</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">annotations</span>:
+</span></span><span style="display:flex;"><span>              {{- <span style="color:#ae81ff">include &#34;acr-pdp.sidecar.label-logging&#34; . | nindent 8 }}</span>
+</span></span></code></pre></div><h3 id='включение-контейнера-pdp'>Включение контейнера PDP<a href='#%d0%b2%d0%ba%d0%bb%d1%8e%d1%87%d0%b5%d0%bd%d0%b8%d0%b5-%d0%ba%d0%be%d0%bd%d1%82%d0%b5%d0%b9%d0%bd%d0%b5%d1%80%d0%b0-pdp' class='anchor'>#</a>
+</h3><p>В раздел <code>containers</code> (внутри <code>spec.template.spec.containers</code> в шаблоне Pod) добавьте следующий код, чтобы включить sidecar-контейнер с OPA:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>{{- <span style="color:#ae81ff">acr-pdp.sidecar.container&#34; . | nindent 8 }}</span>
+</span></span></code></pre></div><p>Этот код добавит контейнер с конфигурацией PDP в качестве sidecar, используя параметры, заданные в <code>values.yaml</code>.</p>
+<hr>
+<h1 id='таблица-markdown'>Таблица Markdown<a href='#%d1%82%d0%b0%d0%b1%d0%bb%d0%b8%d1%86%d0%b0-markdown' class='anchor'>#</a>
+</h1><table>
+  <thead>
+      <tr>
+          <th>Наименование</th>
+          <th></th>
+          <th>Фактическое значение</th>
+          <th></th>
+          <th>Плановое значение</th>
+          <th></th>
+          <th>Итоговое значение</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td></td>
+          <td></td>
+          <td>А</td>
+          <td>В</td>
+          <td>А</td>
+          <td>В</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Позиция 1</td>
+          <td></td>
+          <td>5</td>
+          <td>5</td>
+          <td>10</td>
+          <td>5</td>
+          <td>25</td>
+      </tr>
+      <tr>
+          <td>NOTE</td>
+          <td>Важное примечание</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Позиция 2 </td>
+          <td></td>
+          <td>5</td>
+          <td>5</td>
+          <td>10</td>
+          <td>5</td>
+          <td>25</td>
+      </tr>
+      <tr>
+          <td>Позиция 3</td>
+          <td></td>
+          <td>0</td>
+          <td>5</td>
+          <td>10</td>
+          <td>5</td>
+          <td>20</td>
+      </tr>
+      <tr>
+          <td>Итого:</td>
+          <td></td>
+          <td>25</td>
+          <td></td>
+          <td>45</td>
+          <td></td>
+          <td>70</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h1 id='таблица-html'>Таблица HTML<a href='#%d1%82%d0%b0%d0%b1%d0%bb%d0%b8%d1%86%d0%b0-html' class='anchor'>#</a>
+</h1><table>
+    <tr>
+        <th rowspan="2" colspan="2" style="text-align: center; vertical-align: center;">Наименование</th>
+        <th colspan="2" style="text-align: center; vertical-align: center;">Фактическое значение</th>
+        <th colspan="2" style="text-align: center; vertical-align: center;">Плановое значение</th>
+        <th rowspan="2" style="text-align: center; vertical-align: center;">Итоговое значение</th>
+    </tr>
+    <tr>
+        <th style="text-align: center; vertical-align: center;">А</th>
+        <th style="text-align: center; vertical-align: center;">В</th>
+        <th style="text-align: center; vertical-align: center;">А</th>
+        <th style="text-align: center; vertical-align: center;">В</th>
+    </tr>
+    <tr>
+        <td colspan="2">Позиция 1 </td>
+        <td rowspan="2">5</td>
+        <td rowspan="2">5</td>
+        <td rowspan="2">10</td>
+        <td rowspan="2">5</td>
+        <td rowspan="2">25</td>
+    </tr>
+    <tr>
+        <td>NOTE</td>
+        <td>Важное примечание</td>
+    </tr>
+    <tr>
+        <td colspan="2">Позиция 2</td>
+        <td>5</td>
+        <td>5</td>
+        <td>10</td>
+        <td>5</td>
+        <td>25</td>
+    </tr>
+    <tr>
+        <td colspan="2">Позиция 3</td>
+        <td>5</td>
+        <td>5</td>
+        <td>10</td>
+        <td>5</td>
+        <td>25</td>
+    </tr>
+    <tr>
+        <td colspan="2">Итого:</td>
+        <td colspan="2">5</td>
+        <td colspan="2">5</td>
+        <td>25</td>
+    </tr>
+</table>
+<hr>
+<h1 id='технический-стиль-письма'>Технический стиль письма<a href='#%d1%82%d0%b5%d1%85%d0%bd%d0%b8%d1%87%d0%b5%d1%81%d0%ba%d0%b8%d0%b9-%d1%81%d1%82%d0%b8%d0%bb%d1%8c-%d0%bf%d0%b8%d1%81%d1%8c%d0%bc%d0%b0' class='anchor'>#</a>
+</h1><p>i. Для детализации используйте…</p>
+<p>ii. Для создания новой заметки выполните…</p>
+<p>iii. При выборе кнопки XXX в таблице отображаются…</p>
+<p>iv. Для получения дополнительной информации обратитесь к…</p>
+<p>v. …реализуется путем активации опции XXX.</p>
+<p>vi. При активации настроечных параметров механизм XXX отключается…</p>
+<p>vii. Перед отключением всех продуктов выполняется закрытие абонента, чтобы исключить возможность их использования в процессе деактивации.</p>
+<p>viii. Серверная часть XXX устанавливается посредством запуска командного файла XXX в среде данных продукта XXX.</p>
+<p>ix. В начале выполнения проверяется значение переменной.</p>
 
 <style>
   #disqus_thread {
@@ -669,8 +704,8 @@
     <div id="disqus_thread"></div>
     <script>
       var disqus_config = function () {
-        this.page.url = "https:\/\/gosyuliya.github.io\/docs\/admin_panel\/";
-        this.page.identifier = "https:\/\/gosyuliya.github.io\/docs\/admin_panel\/";
+        this.page.url = "https:\/\/gosyuliya.github.io\/docs\/tech_docs\/pl_1\/";
+        this.page.identifier = "https:\/\/gosyuliya.github.io\/docs\/tech_docs\/pl_1\/";
       };
       (function() {
         var d = document, s = d.createElement('script');
@@ -691,8 +726,26 @@
     </div>
     <div id="tocContent">
       <div id="toc"><nav id="TableOfContents">
-            <p><strong></strong></p>
-          </nav></div>
+  <ul>
+    <li><a href="#helm-chart-c-шаблонами-для-acr-pdp-sidecar">HELM chart c шаблонами для ACR PDP sidecar</a>
+      <ul>
+        <li><a href="#настройка-зависимости-helm-chart">Настройка зависимости HELM-CHART</a></li>
+        <li><a href="#содержимое-valuesyaml">Содержимое <code>values.yaml</code></a></li>
+        <li><a href="#конфигурация-configmap">Конфигурация ConfigMap</a></li>
+        <li><a href="#конфигурация-портов-сервиса">Конфигурация портов сервиса</a></li>
+        <li><a href="#конфигурация-контейнеров">Конфигурация контейнеров</a>
+          <ul>
+            <li><a href="#добавление-аннотаций">Добавление аннотаций`</a></li>
+            <li><a href="#включение-контейнера-pdp">Включение контейнера PDP</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#таблица-markdown">Таблица Markdown</a></li>
+    <li><a href="#таблица-html">Таблица HTML</a></li>
+    <li><a href="#технический-стиль-письма">Технический стиль письма</a></li>
+  </ul>
+</nav></div>
       <div id="taxonomies"><div class="taxonomy-wrapper"></div><div class="taxonomy-wrapper"></div></div>
     </div>
   </div>

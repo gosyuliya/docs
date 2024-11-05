@@ -1,5 +1,6 @@
 ---
 title: "Список инстансов для передачи заказчикам"
+slug: "pl_1"
 #description: ""
 weight: 1
 ---
@@ -73,3 +74,5 @@ weight: 1
 * `https://math.ngcdn.ru/` (ссылка 10) — перейти по адресу **{{< staticref "https://math.ngcdn.ru/" >}}https://math.ngcdn.ru/{{< /staticref >}}** и увидеть "error".
 
     <br>![](/images/error_i.png)<br clear="left"><br>
+
+---
