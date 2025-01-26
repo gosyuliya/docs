@@ -1,9 +1,9 @@
 ---
 title: "Департамент развития бренда и коммуникаций"
-#description: ""
-weight: 1
+_build:
+  render: never
+  list: never
+  publishResources: false
 ---
-
-Департамент развития бренда и коммуникаций
 
 

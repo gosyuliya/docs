@@ -283,17 +283,6 @@
               </a>
             </div>
           </div><ul class="is-marginless"><div class="">
-      <div class=""><li class="is-marginless is-entries-expandable is-entries-shrinked"><div
-            class="card"><div class="card-header">
-      <a
-        href='/docs/platform/main/'
-        class='card-header-title'
-          title='Основное'>
-        <i class='fa-solid fa-turn-up fa-rotate-90 fa-xs'></i><p class="pt-0 pb-0 pr-2 pl-0">Основное</p></a><a class="card-header-icon is-icon-expandable is-paddingless is-icon-shrinked">
-                <span class='icon'></span>
-              </a>
-            </div>
-          </div><ul class="is-marginless"><div class="">
       <div class=""><li class="is-marginless"><div
             class="card"><div class="card-header is-single-link">
       <a
@@ -302,8 +291,6 @@
           title='Список инстансов для передачи заказчикам'>
         <i class='fa-solid fa-turn-up fa-rotate-90 fa-xs'></i><p class="pt-0 pb-0 pr-2 pl-0">Список инстансов для передачи заказчикам</p></a></div>
           </div></li>
-      </div>
-    </div></ul></li>
       </div>
     </div></ul></li>
       </div>
@@ -454,43 +441,20 @@
       </div>
     </div></ul></li>
       </div>
-    </div><div class="card is-fs-expandable-icon"><div class="card-header">
+    </div><div class="card is-fs-expandable-icon"><div class="card-header is-single-link">
       <a
         href='/docs/team/'
         class='card-header-title'>
         <i class='fa-solid fa-people-group fa-lg'></i></a></div>
       </div><div class="is-expandable">
-      <div class="is-sidebar-list-wrapper"><li class="is-marginless is-entries-expandable is-entries-shrinked"><div
-            class="card"><div class="card-header">
+      <div class="is-sidebar-list-wrapper"><li class="is-marginless"><div
+            class="card"><div class="card-header is-single-link">
       <a
         href='/docs/team/'
         class='card-header-title'
           title='Команда Цифриума'>
-        <i class='fa-solid fa-people-group fa-lg'></i><p class="pt-0 pb-0 pr-2 pl-1">Команда Цифриума</p></a><a class="card-header-icon is-icon-expandable is-paddingless is-icon-shrinked">
-                <span class='icon'></span>
-              </a>
-            </div>
-          </div><ul class="is-marginless"><div class="">
-      <div class=""><li class="is-marginless"><div
-            class="card"><div class="card-header is-single-link">
-      <a
-        href='/docs/team/brand/'
-        class='card-header-title'
-          title='Департамент развития бренда и коммуникаций'>
-        <i class='fa-solid fa-turn-up fa-rotate-90 fa-xs'></i><p class="pt-0 pb-0 pr-2 pl-0">Департамент развития бренда и коммуникаций</p></a></div>
+        <i class='fa-solid fa-people-group fa-lg'></i><p class="pt-0 pb-0 pr-2 pl-1">Команда Цифриума</p></a></div>
           </div></li>
-      </div>
-    </div><div class="">
-      <div class=""><li class="is-marginless"><div
-            class="card"><div class="card-header is-single-link">
-      <a
-        href='/docs/team/comm/'
-        class='card-header-title'
-          title='Департамент стратегических коммуникаций'>
-        <i class='fa-solid fa-turn-up fa-rotate-90 fa-xs'></i><p class="pt-0 pb-0 pr-2 pl-0">Департамент стратегических коммуникаций</p></a></div>
-          </div></li>
-      </div>
-    </div></ul></li>
       </div>
     </div></ul>
       </aside>
@@ -541,7 +505,7 @@
 </ul>
 <p>Все остальные параметры можно переопределить по мере необходимости: порт сервиса, параметры контейнера Docker, таймауты и другие настройки.</p>
 <h2 id='конфигурация-configmap'>Конфигурация ConfigMap<a href='#%d0%ba%d0%be%d0%bd%d1%84%d0%b8%d0%b3%d1%83%d1%80%d0%b0%d1%86%d0%b8%d1%8f-configmap' class='anchor'>#</a>
-</h2><p>Для хранения политик OPA требуется создать отдельный шаблон <strong>ConfigMap</strong>.
+</h2><p>Для хранения политик OPA создайте отдельный шаблон <strong>ConfigMap</strong>.
 Включите следующий код в шаблон ConfigMap:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>{{- <span style="color:#ae81ff">include &#34;acr-pdp.configmap&#34; . -}}</span>
 </span></span></code></pre></div><p>Этот шаблон будет автоматически генерировать ConfigMap с содержимым из файлов политик OPA, расположенных по указанному пути.</p>
@@ -682,16 +646,6 @@
     </tr>
 </table>
 <hr>
-<h1 id='технический-стиль-письма'>Технический стиль письма<a href='#%d1%82%d0%b5%d1%85%d0%bd%d0%b8%d1%87%d0%b5%d1%81%d0%ba%d0%b8%d0%b9-%d1%81%d1%82%d0%b8%d0%bb%d1%8c-%d0%bf%d0%b8%d1%81%d1%8c%d0%bc%d0%b0' class='anchor'>#</a>
-</h1><p>i. Для детализации используйте…</p>
-<p>ii. Для создания новой заметки выполните…</p>
-<p>iii. При выборе кнопки XXX в таблице отображаются…</p>
-<p>iv. Для получения дополнительной информации обратитесь к…</p>
-<p>v. …реализуется путем активации опции XXX.</p>
-<p>vi. При активации настроечных параметров механизм XXX отключается…</p>
-<p>vii. Перед отключением всех продуктов выполняется закрытие абонента, чтобы исключить возможность их использования в процессе деактивации.</p>
-<p>viii. Серверная часть XXX устанавливается посредством запуска командного файла XXX в среде данных продукта XXX.</p>
-<p>ix. В начале выполнения проверяется значение переменной.</p>
 
 <style>
   #disqus_thread {
@@ -743,7 +697,6 @@
     </li>
     <li><a href="#таблица-markdown">Таблица Markdown</a></li>
     <li><a href="#таблица-html">Таблица HTML</a></li>
-    <li><a href="#технический-стиль-письма">Технический стиль письма</a></li>
   </ul>
 </nav></div>
       <div id="taxonomies"><div class="taxonomy-wrapper"></div><div class="taxonomy-wrapper"></div></div>

@@ -47,6 +47,8 @@ Deploy Hugo site to Pages выдаёт ошибку:
 
     <br>![I'm an image](/images/gh_6.png)<br clear="left"><br>
 
+    ---
+
 
 
     

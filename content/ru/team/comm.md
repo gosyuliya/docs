@@ -1,7 +1,7 @@
 ---
 title: "Департамент стратегических коммуникаций"
-#description: ""
-weight: 2
+_build:
+  render: never
+  list: never
+  publishResources: false
 ---
-
-Департамент стратегических коммуникаций
