@@ -1,6 +1,6 @@
 baseURL = "https://gosyuliya.github.io/docs/"
 #baseURL = "https://example.com/"
-title = "Документация Платформы Цифриума"
+title = "Господарик Юлия"
 theme = "shadocs"
 rss = true
 defaultContentLanguage = "ru"
@@ -34,9 +34,6 @@ disqusShortname = "gosyuliya"
 
 [outputs]
   home = ["HTML", "JSON"]
-
-[params.includes]
-    css = ["css/custom.css"]
 
 [markup]
   [markup.tableOfContents]
