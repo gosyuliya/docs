@@ -3,7 +3,7 @@
   <head><script src="/docs/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=docs/livereload" data-no-instant defer></script><meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="generator" content="Hugo 0.136.4">
-<meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="description" content="Здесь находятся ответы на вопросы, связанные с платформой GitHub" /><title>GitHub | Документация Платформы Цифриума</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="description" content="для разработчиков встраиваемых систем" /><title>Описание протокола CAN и стека CANopen | Документация Платформы Цифриума</title>
 
 <link
   rel="icon"
@@ -311,23 +311,23 @@
         <i class='fa-solid fa-shoe-prints fa-lg'></i><p class="pt-0 pb-0 pr-2 pl-1">Пошаговые инструкции</p></a></div>
           </div></li>
       </div>
-    </div><div class="card is-fs-expandable-icon"><div class="card-header">
+    </div><div class="card is-fs-expandable-icon is-sidebar-active"><div class="card-header">
       <a
         href='/docs/tech_docs/'
         class='card-header-title'>
         <i class='fa-solid fa-code-pull-request fa-lg'></i></a></div>
       </div><div class="is-expandable">
-      <div class="is-sidebar-list-wrapper"><li class="is-marginless is-entries-expandable is-entries-shrinked"><div
+      <div class="is-sidebar-list-wrapper"><li class="is-marginless is-tree-active is-entries-expandable is-entries-expanded"><div
             class="card"><div class="card-header">
       <a
         href='/docs/tech_docs/'
         class='card-header-title'
           title='Техническая документация'>
-        <i class='fa-solid fa-code-pull-request fa-lg'></i><p class="pt-0 pb-0 pr-2 pl-1">Техническая документация</p></a><a class="card-header-icon is-icon-expandable is-paddingless is-icon-shrinked">
+        <i class='fa-solid fa-code-pull-request fa-lg'></i><p class="pt-0 pb-0 pr-2 pl-1">Техническая документация</p></a><a class="card-header-icon is-icon-expandable is-paddingless is-icon-expanded">
                 <span class='icon'></span>
               </a>
             </div>
-          </div><ul class="is-marginless"><div class="">
+          </div><ul class="is-marginless is-tree-active"><div class="">
       <div class=""><li class="is-marginless"><div
             class="card"><div class="card-header is-single-link">
       <a
@@ -339,7 +339,7 @@
       </div>
     </div><div class="">
       <div class=""><li class="is-marginless"><div
-            class="card"><div class="card-header is-single-link">
+            class="card is-sidebar-active"id='sidebarActiveEntry'><div class="card-header is-single-link">
       <a
         href='/docs/tech_docs/pl_2/'
         class='card-header-title'
@@ -349,25 +349,25 @@
       </div>
     </div></ul></li>
       </div>
-    </div><div class="card is-fs-expandable-icon is-sidebar-active"><div class="card-header">
+    </div><div class="card is-fs-expandable-icon"><div class="card-header">
       <a
         href='/docs/questions/'
         class='card-header-title'>
         <i class='fa-solid fa-circle-question fa-lg'></i></a></div>
       </div><div class="is-expandable">
-      <div class="is-sidebar-list-wrapper"><li class="is-marginless is-tree-active is-entries-expandable is-entries-expanded"><div
+      <div class="is-sidebar-list-wrapper"><li class="is-marginless is-entries-expandable is-entries-shrinked"><div
             class="card"><div class="card-header">
       <a
         href='/docs/questions/'
         class='card-header-title'
           title='Частые вопросы'>
-        <i class='fa-solid fa-circle-question fa-lg'></i><p class="pt-0 pb-0 pr-2 pl-1">Частые вопросы</p></a><a class="card-header-icon is-icon-expandable is-paddingless is-icon-expanded">
+        <i class='fa-solid fa-circle-question fa-lg'></i><p class="pt-0 pb-0 pr-2 pl-1">Частые вопросы</p></a><a class="card-header-icon is-icon-expandable is-paddingless is-icon-shrinked">
                 <span class='icon'></span>
               </a>
             </div>
-          </div><ul class="is-marginless is-tree-active"><div class="">
+          </div><ul class="is-marginless"><div class="">
       <div class=""><li class="is-marginless"><div
-            class="card is-sidebar-active"id='sidebarActiveEntry'><div class="card-header is-single-link">
+            class="card"><div class="card-header is-single-link">
       <a
         href='/docs/questions/github/'
         class='card-header-title'
@@ -470,61 +470,242 @@
 </div>
 <div id="sidebarMobileWrapper" class="column is-narrow is-hidden-desktop"></div>
 <div class="columns is-mobile is-marginless is-scroll-smooth has-toc" id="contentContainer">
-  <div class="column" id="content"><div id="contentTitle">GitHub</div>
-<h1 id='ошибки-deploy'>Ошибки deploy<a href='#%d0%be%d1%88%d0%b8%d0%b1%d0%ba%d0%b8-deploy' class='anchor'>#</a>
-</h1><h2 id='github-pages-не-собирает-сайт'>GitHub Pages не собирает сайт<a href='#github-pages-%d0%bd%d0%b5-%d1%81%d0%be%d0%b1%d0%b8%d1%80%d0%b0%d0%b5%d1%82-%d1%81%d0%b0%d0%b9%d1%82' class='anchor'>#</a>
-</h2><p><strong>Вводные:</strong></p>
-<p>Deploy Hugo site to Pages выдаёт ошибку:</p>
-<p><code>Branch &quot;main&quot; is not allowed to deploy to github-pages due to environment protection rules.</code></p>
-<p><br><img
-  src="/docs/images/gh_1.png"
-  alt="I&rsquo;m an image"
-  class="I&rsquo;m an image"/>
-<br clear="left"><br></p>
-<p><strong>Решение:</strong></p>
-<ol>
-<li>
-<p><strong>Проверьте разрешения для GitHub Pages</strong></p>
-<p>Убедитесь, что в настройках репозитория GitHub Pages разрешено публиковаться из ветки, выбранной в Workflow-файле (например, main).</p>
-<p>Настройки репозитория <strong>Settings</strong> → <strong>Environments</strong> → <strong>github-pages</strong> → Измените название разрешенной ветки.</p>
-<p><br><img
-  src="/docs/images/gh_2.png"
-  alt="I&rsquo;m an image"
-  class="I&rsquo;m an image"/>
-<br clear="left"></p>
-<p><br><img
-  src="/docs/images/gh_3.png"
-  alt="I&rsquo;m an image"
-  class="I&rsquo;m an image"/>
-<br clear="left"></p>
-<p><br><img
-  src="/docs/images/gh_4.png"
-  alt="I&rsquo;m an image"
-  class="I&rsquo;m an image"/>
-<br clear="left"><br></p>
-</li>
-<li>
-<p><strong>Измените источник для деплоя GitHub Pages</strong></p>
-<p>Перейдите в настройки репозитория и проверьте, какая ветка выбрана для публикации на GitHub Pages:</p>
-<p>Настройки репозитория <strong>Settings</strong> → <strong>Pages</strong> → Установите источник публикации.</p>
-<p><br><img
-  src="/docs/images/gh_5.png"
-  alt="I&rsquo;m an image"
-  class="I&rsquo;m an image"/>
-<br clear="left"><br></p>
-</li>
-<li>
-<p><strong>Настройте автоматический деплой через Actions с другой ветки</strong></p>
-<p>При использывании GitHub Actions для деплоя, проверьте, чтобы Action был настроен на пуш в ветку, которая разрешена для деплоя.
-Добавьте или измените команды в файле .yml для Actions.</p>
-<p><br><img
-  src="/docs/images/gh_6.png"
-  alt="I&rsquo;m an image"
-  class="I&rsquo;m an image"/>
-<br clear="left"><br></p>
+  <div class="column" id="content"><div id="contentTitle">Описание протокола CAN и стека CANopen</div>
+<h1 id='введение'>Введение<a href='#%d0%b2%d0%b2%d0%b5%d0%b4%d0%b5%d0%bd%d0%b8%d0%b5' class='anchor'>#</a>
+</h1><h2 id='назначение-документа'>Назначение документа<a href='#%d0%bd%d0%b0%d0%b7%d0%bd%d0%b0%d1%87%d0%b5%d0%bd%d0%b8%d0%b5-%d0%b4%d0%be%d0%ba%d1%83%d0%bc%d0%b5%d0%bd%d1%82%d0%b0' class='anchor'>#</a>
+</h2><p>Документ предназначен для разработчиков Embedded-систем, впервые сталкивающихся с протоколом CAN и стеком CANopen.</p>
+<p>Цель &ndash; сформировать целостное понимание архитектуры обмена, механизмов работы шины и прикладной модели устройств.</p>
+<h2 id='область-применения'>Область применения<a href='#%d0%be%d0%b1%d0%bb%d0%b0%d1%81%d1%82%d1%8c-%d0%bf%d1%80%d0%b8%d0%bc%d0%b5%d0%bd%d0%b5%d0%bd%d0%b8%d1%8f' class='anchor'>#</a>
+</h2><p>Материал ориентирован на разработку:</p>
+<ul>
+<li>микроконтроллерных устройств;</li>
+<li>промышленных модулей ввода-вывода;</li>
+<li>приводной техники;</li>
+<li>распределённых систем управления.</li>
+</ul>
+<h1 id='протокол-can'>Протокол CAN<a href='#%d0%bf%d1%80%d0%be%d1%82%d0%be%d0%ba%d0%be%d0%bb-can' class='anchor'>#</a>
+</h1><p>CAN (Controller Area Network) &ndash; промышленная последовательная шина, стандартизованная ISO (ISO 11898). Протокол обеспечивает обмен короткими сообщениями между узлами без центрального управляющего устройства.</p>
+<h2 id='назначение-и-области-применения'>Назначение и области применения<a href='#%d0%bd%d0%b0%d0%b7%d0%bd%d0%b0%d1%87%d0%b5%d0%bd%d0%b8%d0%b5-%d0%b8-%d0%be%d0%b1%d0%bb%d0%b0%d1%81%d1%82%d0%b8-%d0%bf%d1%80%d0%b8%d0%bc%d0%b5%d0%bd%d0%b5%d0%bd%d0%b8%d1%8f' class='anchor'>#</a>
+</h2><p>Основная задача CAN &ndash; надёжная передача данных в распределённых системах реального времени.</p>
+<p>Ключевые свойства:</p>
+<ul>
+<li>отсутствие мастера;</li>
+<li>детерминированный доступ к среде;</li>
+<li>высокая помехоустойчивость;</li>
+<li>встроенные механизмы обнаружения ошибок;</li>
+<li>аппаратная поддержка в большинстве микроконтроллеров.</li>
+</ul>
+<p>CAN широко применяется в автомобильной электронике, промышленной автоматике, медицинском оборудовании и робототехнике.</p>
+<h2 id='используемые-уровни-osi'>Используемые уровни OSI<a href='#%d0%b8%d1%81%d0%bf%d0%be%d0%bb%d1%8c%d0%b7%d1%83%d0%b5%d0%bc%d1%8b%d0%b5-%d1%83%d1%80%d0%be%d0%b2%d0%bd%d0%b8-osi' class='anchor'>#</a>
+</h2><p>CAN реализует только нижние уровни модели OSI.</p>
+<p>Таблица 1 &ndash; Соответствие CAN уровням OSI</p>
+<table>
+    <tr>
+        <th style="text-align: center; vertical-align: center;">Уровень OSI</th>
+        <th style="text-align: center; vertical-align: center;">Реализация в CAN</th>
+    </tr>
+    <tr>
+        <td>7–3</td>
+        <td>Не определены стандартом</td>
+    </tr>
+    <tr>
+        <td>2 (Data Link)</td>
+        <td>Формирование кадра, арбитрация, контроль ошибок</td>
+    </tr>
+    <tr>
+        <td>1 (Physical)</td>
+        <td>Электрические параметры, дифференциальная линия CAN_H / CAN_L</td>
+    </tr>
+ </table> 
+<p>Прикладной уровень в стандарт CAN не входит.</p>
+<h2 id='структура-фрейма'>Структура фрейма<a href='#%d1%81%d1%82%d1%80%d1%83%d0%ba%d1%82%d1%83%d1%80%d0%b0-%d1%84%d1%80%d0%b5%d0%b9%d0%bc%d0%b0' class='anchor'>#</a>
+</h2><p>В классическом CAN полезная нагрузка составляет до 8 байт. Поддерживаются стандартный (11-битный) и расширенный (29-битный) идентификаторы.</p>
+<p>Упрощённая структура стандартного кадра:</p>
+<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">flowchart LR
+    SOF --&gt; Identifier --&gt; Control --&gt; Data --&gt; CRC --&gt; ACK --&gt; EOF
+</code></pre><p>Таблица 2 &ndash; Основные поля CAN-кадра</p>
+<table>
+    <tr>
+        <th style="text-align: center; vertical-align: center;">Поле</th>
+        <th style="text-align: center; vertical-align: center;">Назначение</th>
+    </tr>
+    <tr>
+        <td>SOF</td>
+        <td>Признак начала кадра</td>
+    </tr>
+    <tr>
+        <td>Identifier</td>
+        <td>Приоритет и логическая идентификация сообщения</td>
+    </tr>
+    <tr>
+        <td>Control</td>
+        <td>Служебные биты и длина данных (DLC)</td>
+    </tr>
+    <tr>
+        <td>Data</td>
+        <td>Полезная нагрузка</td>
+    </tr>
+    <tr>
+        <td>CRC</td>
+        <td>Контроль целостности</td>
+    </tr>
+    <tr>
+        <td>ACK</td>
+        <td>Подтверждение приёма</td>
+    </tr>
+    <tr>
+        <td>EOF</td>
+        <td>Завершение кадра</td>
+    </tr>
+ </table> 
+<p>Идентификатор определяет приоритет сообщения и участвует в механизме арбитрации.</p>
+<h2 id='механизм-арбитрации'>Механизм арбитрации<a href='#%d0%bc%d0%b5%d1%85%d0%b0%d0%bd%d0%b8%d0%b7%d0%bc-%d0%b0%d1%80%d0%b1%d0%b8%d1%82%d1%80%d0%b0%d1%86%d0%b8%d0%b8' class='anchor'>#</a>
+</h2><p>CAN использует побитовую арбитрацию без разрушения передачи.</p>
+<p>Передача осуществляется с использованием доминантного (0) и рецессивного (1) уровней.
+Если узел передаёт рецессивный бит, но фиксирует на линии доминантный, он прекращает передачу.</p>
+<p>Выигрывает сообщение с меньшим числовым значением идентификатора.</p>
+<p>Следствие для проектирования: схема идентификаторов должна разрабатываться на этапе архитектуры системы, поскольку она определяет приоритеты сообщений.</p>
+<h2 id='обнаружение-и-обработка-ошибок'>Обнаружение и обработка ошибок<a href='#%d0%be%d0%b1%d0%bd%d0%b0%d1%80%d1%83%d0%b6%d0%b5%d0%bd%d0%b8%d0%b5-%d0%b8-%d0%be%d0%b1%d1%80%d0%b0%d0%b1%d0%be%d1%82%d0%ba%d0%b0-%d0%be%d1%88%d0%b8%d0%b1%d0%be%d0%ba' class='anchor'>#</a>
+</h2><p>CAN содержит встроенные механизмы контроля:</p>
+<ul>
+<li>проверка CRC;</li>
+<li>контроль формата кадра;</li>
+<li>подтверждение приёма (ACK);</li>
+<li>контроль бит-стаффинга.</li>
+</ul>
+<p>Каждый узел ведёт счётчики ошибок передачи (TEC) и приёма (REC).</p>
+<p>Таблица 3 — Состояния узла CAN</p>
+<table>
+    <tr>
+        <th style="text-align: center; vertical-align: center;">Состояние</th>
+        <th style="text-align: center; vertical-align: center;">Характеристика</th>
+    </tr>
+    <tr>
+        <td>Error Active</td>
+        <td>Нормальный режим работы</td>
+    </tr>
+    <tr>
+        <td>Error Passive</td>
+        <td>Повышенный уровень ошибок</td>
+    </tr>
+    <tr>
+        <td>Bus Off</td>
+        <td>отключён от шины</td>
+    </tr>
+ </table> 
+<p>Состояние Bus Off предотвращает блокировку сети неисправным устройством.</p>
+<h1 id='стек-canopen'>Стек CANopen<a href='#%d1%81%d1%82%d0%b5%d0%ba-canopen' class='anchor'>#</a>
+</h1><p>CANopen &ndash; прикладной протокол поверх CAN, разработанный ассоциацией CAN in Automation (CiA).<br>
+Он определяет структуру данных, поведение узлов и правила конфигурации.</p>
+<h2 id='назначение-стека-canopen'>Назначение стека CANopen<a href='#%d0%bd%d0%b0%d0%b7%d0%bd%d0%b0%d1%87%d0%b5%d0%bd%d0%b8%d0%b5-%d1%81%d1%82%d0%b5%d0%ba%d0%b0-canopen' class='anchor'>#</a>
+</h2><p>CANopen обеспечивает:</p>
+<ul>
+<li>стандартизированную модель устройства;</li>
+<li>управление состояниями узлов;</li>
+<li>конфигурацию параметров;</li>
+<li>передачу процессных данных;</li>
+<li>унифицированные профили устройств.</li>
+</ul>
+<h2 id='используемые-уровни-osi-1'>Используемые уровни OSI<a href='#%d0%b8%d1%81%d0%bf%d0%be%d0%bb%d1%8c%d0%b7%d1%83%d0%b5%d0%bc%d1%8b%d0%b5-%d1%83%d1%80%d0%be%d0%b2%d0%bd%d0%b8-osi-1' class='anchor'>#</a>
+</h2><p>Таблица 4 &ndash; Соответствие CANopen уровням OSI</p>
+<table>
+    <tr>
+        <th style="text-align: center; vertical-align: center;">Уровень OSI</th>
+        <th style="text-align: center; vertical-align: center;">Реализация в CAN</th>
+    </tr>
+    <tr>
+        <td>7 (Application)</td>
+        <td>CANopen (SDO, PDO, NMT, EMCY)</td>
+    </tr>
+    <tr>
+        <td>6–3</td>
+        <td>Не используются</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>CAN</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>CAN</td>
+    </tr>
+ </table> 
+<p>CANopen полностью занимает прикладной уровень.</p>
+<h2 id='словарь-объектов'>Словарь объектов<a href='#%d1%81%d0%bb%d0%be%d0%b2%d0%b0%d1%80%d1%8c-%d0%be%d0%b1%d1%8a%d0%b5%d0%ba%d1%82%d0%be%d0%b2' class='anchor'>#</a>
+</h2><p>Словарь объектов (Object Dictionary) &ndash; центральная структура данных CANopen-устройства.</p>
+<p>Каждый параметр адресуется комбинацией:</p>
+<ul>
+<li>16-битный Index;</li>
+<li>8-битный Subindex.</li>
+</ul>
+<p>Словарь включает:</p>
+<ul>
+<li>параметры идентификации;</li>
+<li>коммуникационные настройки;</li>
+<li>конфигурационные параметры;</li>
+<li>процессные данные.</li>
+</ul>
+<p>Таблица 5 &ndash; Типовые диапазоны индексов</p>
+<table>
+    <tr>
+        <th style="text-align: center; vertical-align: center;">Диапазон</th>
+        <th style="text-align: center; vertical-align: center;">Назначение</th>
+    </tr>
+    <tr>
+        <td>0x1000–0x1FFF</td>
+        <td>Коммуникационные параметры</td>
+    </tr>
+    <tr>
+        <td>0x2000–0x5FFF</td>
+        <td>Параметры производителя</td>
+    </tr>
+    <tr>
+        <td>0x6000 и выше</td>
+        <td>Профили устройств</td>
+ </table>
+<p>Доступ к словарю осуществляется через SDO или автоматически через PDO.</p>
+<h2 id='типы-объектов-коммуникации'>Типы объектов коммуникации<a href='#%d1%82%d0%b8%d0%bf%d1%8b-%d0%be%d0%b1%d1%8a%d0%b5%d0%ba%d1%82%d0%be%d0%b2-%d0%ba%d0%be%d0%bc%d0%bc%d1%83%d0%bd%d0%b8%d0%ba%d0%b0%d1%86%d0%b8%d0%b8' class='anchor'>#</a>
+</h2><p>Таблица 6 &ndash; Основные типы объектов CANopen</p>
+<table>
+    <tr>
+        <th style="text-align: center; vertical-align: center;">Тип</th>
+        <th style="text-align: center; vertical-align: center;">Назначение</th>
+    </tr>
+    <tr>
+        <td>NMT</td>
+        <td>Управление состояниями сети</td>
+    </tr>
+    <tr>
+        <td>SDO</td>
+        <td>Чтение и запись объектов словаря</td>
+    </tr>
+    <tr>
+        <td>PDO</td>
+        <td>Передача процессных данных в реальном времени</td>
+    </tr>
+    <tr>
+        <td>EMCY</td>
+        <td>Передача аварийных сообщений</td>
+    </tr>
+ </table>
+<p>PDO предназначены для быстрого обмена данными без подтверждения.
+SDO используются для конфигурации и диагностики.</p>
+<h2 id='адресация-узлов-node-id'>Адресация узлов (Node-ID)<a href='#%d0%b0%d0%b4%d1%80%d0%b5%d1%81%d0%b0%d1%86%d0%b8%d1%8f-%d1%83%d0%b7%d0%bb%d0%be%d0%b2-node-id' class='anchor'>#</a>
+</h2><p>Каждому устройству присваивается Node-ID в диапазоне 1–127.
+Значение 0 используется для широковещательных сообщений управления.</p>
+<p>Идентификатор CAN формируется по принципу: <em>COB-ID = Function Code + Node-ID</em></p>
+<p>Так реализуется логическая адресация поверх общей физической шины.</p>
+<h1 id='глоссарий'>Глоссарий<a href='#%d0%b3%d0%bb%d0%be%d1%81%d1%81%d0%b0%d1%80%d0%b8%d0%b9' class='anchor'>#</a>
+</h1><p><strong>CAN</strong> &ndash; протокол канального уровня для распределённых систем реального времени.</p>
+<p><strong>CANopen</strong> &ndash; прикладной протокол поверх CAN.</p>
+<p><strong>Node-ID</strong> &ndash; идентификатор узла в сети CANopen.</p>
+<p><strong>COB-ID</strong> &ndash; идентификатор CAN-сообщения в CANopen.</p>
+<p><strong>PDO</strong> &ndash; Process Data Object, объект передачи процессных данных.</p>
+<p><strong>SDO</strong> &ndash; Service Data Object, сервис доступа к словарю объектов.</p>
+<p><strong>NMT</strong> &ndash; Network Management, управление состояниями узлов.</p>
+<p><strong>Object Dictionary</strong> &ndash; структурированная таблица параметров устройства.</p>
+<p><strong>Bus Off</strong> &ndash; режим отключения узла при критическом уровне ошибок.</p>
 <hr>
-</li>
-</ol>
 
 <style>
   #disqus_thread {
@@ -537,8 +718,8 @@
     <div id="disqus_thread"></div>
     <script>
       var disqus_config = function () {
-        this.page.url = "http:\/\/localhost:1313\/docs\/questions\/github\/";
-        this.page.identifier = "http:\/\/localhost:1313\/docs\/questions\/github\/";
+        this.page.url = "http:\/\/localhost:1313\/docs\/tech_docs\/pl_2\/";
+        this.page.identifier = "http:\/\/localhost:1313\/docs\/tech_docs\/pl_2\/";
       };
       (function() {
         var d = document, s = d.createElement('script');
@@ -560,11 +741,31 @@
     <div id="tocContent">
       <div id="toc"><nav id="TableOfContents">
   <ul>
-    <li><a href="#ошибки-deploy">Ошибки deploy</a>
+    <li><a href="#введение">Введение</a>
       <ul>
-        <li><a href="#github-pages-не-собирает-сайт">GitHub Pages не собирает сайт</a></li>
+        <li><a href="#назначение-документа">Назначение документа</a></li>
+        <li><a href="#область-применения">Область применения</a></li>
       </ul>
     </li>
+    <li><a href="#протокол-can">Протокол CAN</a>
+      <ul>
+        <li><a href="#назначение-и-области-применения">Назначение и области применения</a></li>
+        <li><a href="#используемые-уровни-osi">Используемые уровни OSI</a></li>
+        <li><a href="#структура-фрейма">Структура фрейма</a></li>
+        <li><a href="#механизм-арбитрации">Механизм арбитрации</a></li>
+        <li><a href="#обнаружение-и-обработка-ошибок">Обнаружение и обработка ошибок</a></li>
+      </ul>
+    </li>
+    <li><a href="#стек-canopen">Стек CANopen</a>
+      <ul>
+        <li><a href="#назначение-стека-canopen">Назначение стека CANopen</a></li>
+        <li><a href="#используемые-уровни-osi-1">Используемые уровни OSI</a></li>
+        <li><a href="#словарь-объектов">Словарь объектов</a></li>
+        <li><a href="#типы-объектов-коммуникации">Типы объектов коммуникации</a></li>
+        <li><a href="#адресация-узлов-node-id">Адресация узлов (Node-ID)</a></li>
+      </ul>
+    </li>
+    <li><a href="#глоссарий">Глоссарий</a></li>
   </ul>
 </nav></div>
       <div id="taxonomies"><div class="taxonomy-wrapper"></div><div class="taxonomy-wrapper"></div></div>
@@ -629,6 +830,9 @@
       type="module"
       src="/docs/js/theme/toc.min.js"
     ></script><script
+      type="module"
+      src="/docs/js/fencedcodes/mermaid.min.js"
+    ></script><script
       type="text/javascript"
       src="/docs/js/theme/browserCompatibility.min.js"
     ></script><script
@@ -640,6 +844,9 @@
     ></script><script
       type="text/javascript"
       src="/docs/js/external/overlay-scrollbars/overlayscrollbars.min.js"
+    ></script><script
+      type="text/javascript"
+      src="/docs/js/external/mermaid/mermaid.min.js"
     ></script>
 </body>
 </html>

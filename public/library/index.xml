@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Библиотека on Документация Платформы Цифриума</title>
-    <link>https://gosyuliya.github.io/docs/library/</link>
+    <link>http://localhost:1313/docs/library/</link>
     <description>Recent content in Библиотека on Документация Платформы Цифриума</description>
     <generator>Hugo</generator>
     <language>ru</language>
-    <atom:link href="https://gosyuliya.github.io/docs/library/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/docs/library/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Термины и определения</title>
-      <link>https://gosyuliya.github.io/docs/library/terms/</link>
+      <link>http://localhost:1313/docs/library/terms/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://gosyuliya.github.io/docs/library/terms/</guid>
-      <description>&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;B2B сектор&lt;/strong&gt; (бизнес для бизнеса) — это сфера, где юридические лица предоставляют товары и услуги друг другу, а не конечным потребителям.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;Админка&lt;/strong&gt; — административная панель в системе, позволяющая управлять настройками и функциональностью платформы.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;ДИТ&lt;/strong&gt; &amp;ndash; Департамент информационных технологий г. Москвы.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;Инстанс (Instance)&lt;/strong&gt; — отдельный экземпляр Платформы, созданный для предоставления образовательных услуг определённой группе пользователей.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;Платформа&lt;/strong&gt; — онлайн-платформа «Цифриум», объединяющая различные веб-сервисы в единое пространство для предоставления образовательного и просветительского контента. Платформа включает 11 продуктовых и 2 тестовых инстанса.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/docs/library/terms/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;CAN&lt;/strong&gt; &amp;ndash; протокол канального уровня для распределённых систем реального времени.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;CANopen&lt;/strong&gt; &amp;ndash; прикладной протокол поверх CAN.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Node-ID&lt;/strong&gt; &amp;ndash; идентификатор узла в сети CANopen.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;COB-ID&lt;/strong&gt; &amp;ndash;идентификатор CAN-сообщения в CANopen.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;PDO&lt;/strong&gt; &amp;ndash; Process Data Object, объект передачи процессных данных.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;SDO&lt;/strong&gt; &amp;ndash; Service Data Object, сервис доступа к словарю объектов.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;NMT&lt;/strong&gt; &amp;ndash; Network Management, управление состояниями узлов.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Object Dictionary&lt;/strong&gt; &amp;ndash; структурированная таблица параметров устройства.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Bus Off&lt;/strong&gt; &amp;ndash; режим отключения узла при критическом уровне ошибок.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Полезные ссылки</title>
-      <link>https://gosyuliya.github.io/docs/library/links/</link>
+      <link>http://localhost:1313/docs/library/links/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://gosyuliya.github.io/docs/library/links/</guid>
+      <guid>http://localhost:1313/docs/library/links/</guid>
       <description>&lt;p&gt;Этот раздел будет включать инструменты и ресурсы для программистов, дизайнеров и других специалистов, позволяя им легко находить необходимые средства для создания и обработки контента.&lt;/p&gt;</description>
     </item>
   </channel>
