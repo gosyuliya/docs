@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html>
+  <head><meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="generator" content="Hugo 0.136.4">
+<meta name="viewport" content="width=device-width, initial-scale=1" /><title>CAN и CANopen: краткое инженерное введение для Embedded-разработчика | Господарик Юлия</title>
+
+<link
+  rel="icon"
+  href="/docs/images/favicon.png"
+  type="image/x-icon"
+/>
+<link
+    rel="stylesheet"
+    rel="preload"
+    type="text/css"
+    href="/docs/css/main.css"
+  /><link
+      rel="stylesheet"
+      type="text/css"
+      href="/docs/css/external/fontawesome.all.min.css"
+    /><link
+      rel="stylesheet"
+      type="text/css"
+      href="/docs/css/external/overlay-scrollbars/overlayscrollbars.min.css"
+    />
+</head>
+  <body onload="browserCompatibility()"><div id="navbarInfo" class="is-hidden modal-container">
+  <div class="modal-content-box modal-text-box">
+    <div class="card modal-title is-radiusless">
+      <div class="card-header">
+        <p class="card-header-title is-marginless">О нас</p>
+      </div>
+    </div>
+    <div class="modal-content-container">
+      <div class="modal-content-block is-block">
+</div>
+    </div>
+  </div>
+</div>
+<div id="navbarShortcuts" class="is-hidden modal-container">
+  <div class="modal-content-box modal-text-box"><div class="card modal-title is-radiusless">
+        <div class="card-header">
+          <p class="card-header-title is-marginless">Горячии клавиши</p>
+        </div>
+      </div>
+      <div class="modal-content-container">
+        <div class="modal-content-block"><div class="modal-content"><kbd>Shift</kbd><p>+</p><kbd>q</kbd></div>
+  <div class="modal-content">
+    <p class="has-text-weight-normal">Показать QR-код текущей страницы</p>
+  </div><div class="modal-content"><kbd>Escape</kbd></div>
+  <div class="modal-content">
+    <p class="has-text-weight-normal">Закрыть модальные окна</p>
+  </div><div class="modal-content"><kbd>Shift</kbd><p>+</p><kbd>i</kbd></div>
+  <div class="modal-content">
+    <p class="has-text-weight-normal">Показать информацию о веб-сайте</p>
+  </div><div class="modal-content"><kbd>Shift</kbd><p>+</p><kbd>k</kbd></div>
+  <div class="modal-content">
+    <p class="has-text-weight-normal">Показать ярлыки</p>
+  </div><div class="modal-content"><kbd>Shift</kbd><p>+</p><kbd>h</kbd></div>
+  <div class="modal-content">
+    <p class="has-text-weight-normal">Домой</p>
+  </div><div class="modal-content"><kbd>Shift</kbd><p>+</p><kbd>f</kbd></div>
+  <div class="modal-content">
+    <p class="has-text-weight-normal">Найти на сайте</p>
+  </div><div class="modal-content"><kbd>Shift</kbd><p>+</p><kbd>m</kbd></div>
+  <div class="modal-content">
+    <p class="has-text-weight-normal">Свернуть/развернуть боковую панель</p>
+  </div><div class="modal-content"><kbd>Shift</kbd><p>+</p><kbd>t</kbd></div>
+  <div class="modal-content">
+    <p class="has-text-weight-normal">Свернуть/Развернуть оглавление</p>
+  </div><div class="modal-content"><kbd>Shift</kbd><p>+</p><kbd>↑</kbd></div>
+  <div class="modal-content">
+    <p class="has-text-weight-normal">Перейти в начало страницы</p>
+  </div><div class="modal-content"><kbd>Shift</kbd><p>+</p><kbd>↓</kbd></div>
+  <div class="modal-content">
+    <p class="has-text-weight-normal">Перейти в конец страницы</p>
+  </div><div class="modal-content"><kbd>Shift</kbd><p>+</p><kbd>p</kbd></div>
+  <div class="modal-content">
+    <p class="has-text-weight-normal">Распечатать текущую страницу</p>
+  </div></div>
+      </div></div>
+</div>
+<div id="modalContainer" class="is-hidden modal-container">
+  <div id="modal" class="modal-content-box"></div>
+</div>
+<nav id="navbar" class="navbar" role="navigation" aria-label="main navigation">
+  <div id="navbarItemsContainer" class="navbar-brand"><div id="globalLogoContainer" class="is-flex">
+  <a
+    id="globalLogo"
+    class="navbar-item navbar-item-standard is-paddingless"
+    href="/docs/"
+  >
+    <img
+      alt="Домашняя страница"
+      src="/docs/images/logo.png"
+    />
+  </a>
+  <a
+    id="globalTouchLogo"
+    class="navbar-item navbar-item-standard is-paddingless"
+    href="/docs/"
+  >
+    <img
+      alt="Домашняя страница"
+      src="/docs/images/logoTouch.png"
+    />
+  </a>
+</div>
+<div id="navbarItems" class="is-flex">
+      <div id="navbarItemsStart" class="is-flex">
+        <div id="searchContainer" class="navbar-item"><div class="control has-icons-left">
+  <span id="searchInput" class="autocomplete">
+    <input
+      id="search"
+      autocomplete="off"
+      class="input"
+      type="search"
+      placeholder="Поиск"
+    />
+  </span>
+  <span class="icon is-left">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </span>
+  <ul id="searchList" class="is-paddingless is-hidden"></ul>
+</div>
+</div>
+      </div>
+      <div id="navbarItemsEnd" class="is-flex is-invisible"><div class="navbar-item">
+  <a
+    id="printButton"
+    class="button navbar-item-standard"
+  >
+    <span class="icon-text">Печать</span>
+    <span class="icon">
+      <i class="fa-solid fa-print fa-lg"></i>
+    </span>
+  </a>
+</div>
+<div class="navbar-item">
+  <a
+    id="qrCodeButton"
+    class="button navbar-item-standard"
+  >
+    <span class="icon-text">QR код</span>
+    <span class="icon">
+      <i class="fa-solid fa-qrcode fa-lg"></i>
+    </span>
+  </a>
+</div>
+<div class="navbar-item">
+  <a
+    id="shortcutsInfo"
+    trigger="navbarShortcuts"
+    class="button navbar-item-standard navbar-trigger"
+    title="Горячии клавиши"
+  >
+    <span class="icon-text">Горячие клавиши</span>
+    <span class="icon">
+      <i class="fa-solid fa-keyboard fa-lg"></i>
+    </span>
+  </a>
+</div><div class="navbar-item is-enforced-hidden">
+  <a
+    id="siteInfo"
+    trigger="navbarInfo"
+    class="button navbar-item-standard navbar-trigger"
+    title="О нас"
+  >
+    <span class="icon-text">О нас</span>
+    <span class="icon">
+      <i class="fa-solid fa-circle-question fa-lg"></i>
+    </span>
+  </a>
+</div>
+<div id="navbarExtend" class="navbar-item">
+  <div id="navbarExtendWrapper">
+    <a id="navbarExtendButton" class="button navbar-item-standard">
+      <span class="icon">
+        <i class="fa-solid fa-ellipsis fa-lg"></i>
+      </span>
+    </a>
+    <div id="navbarExtendItemsContainer">
+      <div id="navbarExtendItemsWrapper"><div class="navbar-item">
+  <a
+    id="printButtonExtend"
+    class="button navbar-item-standard"
+  >
+    <span class="icon-text">Печать</span>
+    <span class="icon">
+      <i class="fa-solid fa-print fa-lg"></i>
+    </span>
+  </a>
+</div>
+<div class="navbar-item">
+  <a
+    id="qrCodeButtonExtend"
+    class="button navbar-item-standard"
+  >
+    <span class="icon-text">QR код</span>
+    <span class="icon">
+      <i class="fa-solid fa-qrcode fa-lg"></i>
+    </span>
+  </a>
+</div>
+<div class="navbar-item">
+  <a
+    id="shortcutsInfoExtend"
+    trigger="navbarShortcuts"
+    class="button navbar-item-standard navbar-trigger"
+    title="Горячии клавиши"
+  >
+    <span class="icon-text">Горячие клавиши</span>
+    <span class="icon">
+      <i class="fa-solid fa-keyboard fa-lg"></i>
+    </span>
+  </a>
+</div><div class="navbar-item is-enforced-hidden">
+  <a
+    id="siteInfoExtend"
+    trigger="navbarInfo"
+    class="button navbar-item-standard navbar-trigger"
+    title="О нас"
+  >
+    <span class="icon-text">О нас</span>
+    <span class="icon">
+      <i class="fa-solid fa-circle-question fa-lg"></i>
+    </span>
+  </a>
+</div>
+</div>
+    </div>
+  </div>
+</div>
+</div>
+    </div>
+  </div>
+</nav>
+<div id="navbarOverlay"></div>
+<div
+      class="columns is-mobile is-paddingless is-marginless"
+      id="mainContainer"
+    ><div
+  id="sidebarContainer"
+  class="column is-narrow is-paddingless is-marginless"
+>
+  <div id="sidebarWrapper" class="is-fixed">
+    <div id="sidebar" class="is-marginless">
+      <aside class="menu is-paddingless is-marginless">
+        <ul class="menu-list is-marginless is-paddingless"><div class="card is-fs-expandable-icon"><div class="card-header is-single-link">
+      <a
+        href='/docs/introduction/'
+        class='card-header-title'>
+        <i class='fa-solid fa-database fa-lg'></i></a></div>
+      </div><div class="is-expandable">
+      <div class="is-sidebar-list-wrapper"><li class="is-marginless"><div
+            class="card"><div class="card-header is-single-link">
+      <a
+        href='/docs/introduction/'
+        class='card-header-title'
+          title='Структура'>
+        <i class='fa-solid fa-database fa-lg'></i><p class="pt-0 pb-0 pr-2 pl-1">Структура</p></a></div>
+          </div></li>
+      </div>
+    </div><div class="card is-fs-expandable-icon"><div class="card-header is-single-link">
+      <a
+        href='/docs/platform/'
+        class='card-header-title'>
+        <i class='fa-solid fa-shapes fa-lg'></i></a></div>
+      </div><div class="is-expandable">
+      <div class="is-sidebar-list-wrapper"><li class="is-marginless"><div
+            class="card"><div class="card-header is-single-link">
+      <a
+        href='/docs/platform/'
+        class='card-header-title'
+          title='Платформа'>
+        <i class='fa-solid fa-shapes fa-lg'></i><p class="pt-0 pb-0 pr-2 pl-1">Платформа</p></a></div>
+          </div></li>
+      </div>
+    </div><div class="card is-fs-expandable-icon"><div class="card-header is-single-link">
+      <a
+        href='/docs/admin_panel/'
+        class='card-header-title'>
+        <i class='fa-solid fa-user-gear fa-lg'></i></a></div>
+      </div><div class="is-expandable">
+      <div class="is-sidebar-list-wrapper"><li class="is-marginless"><div
+            class="card"><div class="card-header is-single-link">
+      <a
+        href='/docs/admin_panel/'
+        class='card-header-title'
+          title='Панель Администратора'>
+        <i class='fa-solid fa-user-gear fa-lg'></i><p class="pt-0 pb-0 pr-2 pl-1">Панель Администратора</p></a></div>
+          </div></li>
+      </div>
+    </div><div class="card is-fs-expandable-icon"><div class="card-header is-single-link">
+      <a
+        href='/docs/guides/'
+        class='card-header-title'>
+        <i class='fa-solid fa-shoe-prints fa-lg'></i></a></div>
+      </div><div class="is-expandable">
+      <div class="is-sidebar-list-wrapper"><li class="is-marginless"><div
+            class="card"><div class="card-header is-single-link">
+      <a
+        href='/docs/guides/'
+        class='card-header-title'
+          title='Пошаговые инструкции'>
+        <i class='fa-solid fa-shoe-prints fa-lg'></i><p class="pt-0 pb-0 pr-2 pl-1">Пошаговые инструкции</p></a></div>
+          </div></li>
+      </div>
+    </div><div class="card is-fs-expandable-icon is-sidebar-active"><div class="card-header">
+      <a
+        href='/docs/tech_docs/'
+        class='card-header-title'>
+        <i class='fa-solid fa-code-pull-request fa-lg'></i></a></div>
+      </div><div class="is-expandable">
+      <div class="is-sidebar-list-wrapper"><li class="is-marginless is-tree-active is-entries-expandable is-entries-expanded"><div
+            class="card"><div class="card-header">
+      <a
+        href='/docs/tech_docs/'
+        class='card-header-title'
+          title='Техническая документация'>
+        <i class='fa-solid fa-code-pull-request fa-lg'></i><p class="pt-0 pb-0 pr-2 pl-1">Техническая документация</p></a><a class="card-header-icon is-icon-expandable is-paddingless is-icon-expanded">
+                <span class='icon'></span>
+              </a>
+            </div>
+          </div><ul class="is-marginless is-tree-active"><div class="">
+      <div class=""><li class="is-marginless"><div
+            class="card"><div class="card-header is-single-link">
+      <a
+        href='/docs/tech_docs/tech_1/'
+        class='card-header-title'
+          title='Шаблоны для конфигурации backend сервисов с OPA'>
+        <i class='fa-solid fa-turn-up fa-rotate-90 fa-xs'></i><p class="pt-0 pb-0 pr-2 pl-0">Шаблоны для конфигурации backend сервисов с OPA</p></a></div>
+          </div></li>
+      </div>
+    </div><div class="">
+      <div class=""><li class="is-marginless"><div
+            class="card is-sidebar-active"id='sidebarActiveEntry'><div class="card-header is-single-link">
+      <a
+        href='/docs/tech_docs/tech_2/'
+        class='card-header-title'
+          title='CAN и CANopen: краткое инженерное введение для Embedded-разработчика'>
+        <i class='fa-solid fa-turn-up fa-rotate-90 fa-xs'></i><p class="pt-0 pb-0 pr-2 pl-0">CAN и CANopen: краткое инженерное введение для Embedded-разработчика</p></a></div>
+          </div></li>
+      </div>
+    </div></ul></li>
+      </div>
+    </div><div class="card is-fs-expandable-icon"><div class="card-header">
+      <a
+        href='/docs/questions/'
+        class='card-header-title'>
+        <i class='fa-solid fa-circle-question fa-lg'></i></a></div>
+      </div><div class="is-expandable">
+      <div class="is-sidebar-list-wrapper"><li class="is-marginless is-entries-expandable is-entries-shrinked"><div
+            class="card"><div class="card-header">
+      <a
+        href='/docs/questions/'
+        class='card-header-title'
+          title='Частые вопросы'>
+        <i class='fa-solid fa-circle-question fa-lg'></i><p class="pt-0 pb-0 pr-2 pl-1">Частые вопросы</p></a><a class="card-header-icon is-icon-expandable is-paddingless is-icon-shrinked">
+                <span class='icon'></span>
+              </a>
+            </div>
+          </div><ul class="is-marginless"><div class="">
+      <div class=""><li class="is-marginless"><div
+            class="card"><div class="card-header is-single-link">
+      <a
+        href='/docs/questions/github/'
+        class='card-header-title'
+          title='GitHub'>
+        <i class='fa-solid fa-turn-up fa-rotate-90 fa-xs'></i><p class="pt-0 pb-0 pr-2 pl-0">GitHub</p></a></div>
+          </div></li>
+      </div>
+    </div></ul></li>
+      </div>
+    </div><div class="card is-fs-expandable-icon"><div class="card-header">
+      <a
+        href='/docs/library/'
+        class='card-header-title'>
+        <i class='fa-solid fa-book fa-lg'></i></a></div>
+      </div><div class="is-expandable">
+      <div class="is-sidebar-list-wrapper"><li class="is-marginless is-entries-expandable is-entries-shrinked"><div
+            class="card"><div class="card-header">
+      <a
+        href='/docs/library/'
+        class='card-header-title'
+          title='Библиотека'>
+        <i class='fa-solid fa-book fa-lg'></i><p class="pt-0 pb-0 pr-2 pl-1">Библиотека</p></a><a class="card-header-icon is-icon-expandable is-paddingless is-icon-shrinked">
+                <span class='icon'></span>
+              </a>
+            </div>
+          </div><ul class="is-marginless"><div class="">
+      <div class=""><li class="is-marginless"><div
+            class="card"><div class="card-header is-single-link">
+      <a
+        href='/docs/library/terms/'
+        class='card-header-title'
+          title='Термины и определения'>
+        <i class='fa-solid fa-turn-up fa-rotate-90 fa-xs'></i><p class="pt-0 pb-0 pr-2 pl-0">Термины и определения</p></a></div>
+          </div></li>
+      </div>
+    </div><div class="">
+      <div class=""><li class="is-marginless is-entries-expandable is-entries-shrinked"><div
+            class="card"><div class="card-header">
+      <a
+        href='/docs/library/books/'
+        class='card-header-title'
+          title='Книги'>
+        <i class='fa-solid fa-turn-up fa-rotate-90 fa-xs'></i><p class="pt-0 pb-0 pr-2 pl-0">Книги</p></a><a class="card-header-icon is-icon-expandable is-paddingless is-icon-shrinked">
+                <span class='icon'></span>
+              </a>
+            </div>
+          </div><ul class="is-marginless"><div class="">
+      <div class=""><li class="is-marginless"><div
+            class="card"><div class="card-header is-single-link">
+      <a
+        href='/docs/library/books/analitics/'
+        class='card-header-title'
+          title='Аналитика'>
+        <i class='fa-solid fa-turn-up fa-rotate-90 fa-xs'></i><p class="pt-0 pb-0 pr-2 pl-0">Аналитика</p></a></div>
+          </div></li>
+      </div>
+    </div></ul></li>
+      </div>
+    </div><div class="">
+      <div class=""><li class="is-marginless"><div
+            class="card"><div class="card-header is-single-link">
+      <a
+        href='/docs/library/links/'
+        class='card-header-title'
+          title='Полезные ссылки'>
+        <i class='fa-solid fa-turn-up fa-rotate-90 fa-xs'></i><p class="pt-0 pb-0 pr-2 pl-0">Полезные ссылки</p></a></div>
+          </div></li>
+      </div>
+    </div></ul></li>
+      </div>
+    </div></ul>
+      </aside>
+    </div>
+    <div id="sidebarCollapsible" class="is-marginless">
+      <div class="card is-uncollapse-action">
+        <div
+          id="sidebarUncollapse"
+          class="card-header is-single-link"
+          title="Свернуть/развернуть боковую панель"
+        >
+          <a class="card-header-title">
+            <i class="fa-solid fa-angles-right fa-lg"></i>
+          </a>
+        </div>
+      </div>
+      <div class="card is-collapse-action">
+        <div
+          id="sidebarCollapse"
+          class="card-header is-single-link"
+          title="Свернуть/развернуть боковую панель"
+        >
+          <a class="card-header-title">
+            <i class="fa-solid fa-angles-left fa-lg"></i>
+            <p>Убрать панель</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="sidebarMobileWrapper" class="column is-narrow is-hidden-desktop"></div>
+<div class="columns is-mobile is-marginless is-scroll-smooth has-toc" id="contentContainer">
+  <div class="column" id="content"><div id="contentTitle">CAN и CANopen: краткое инженерное введение для Embedded-разработчика</div>
+<h1 id='протокол-can'>Протокол CAN<a href='#%d0%bf%d1%80%d0%be%d1%82%d0%be%d0%ba%d0%be%d0%bb-can' class='anchor'>#</a>
+</h1><h2 id='назначение-и-область-применения'>Назначение и область применения<a href='#%d0%bd%d0%b0%d0%b7%d0%bd%d0%b0%d1%87%d0%b5%d0%bd%d0%b8%d0%b5-%d0%b8-%d0%be%d0%b1%d0%bb%d0%b0%d1%81%d1%82%d1%8c-%d0%bf%d1%80%d0%b8%d0%bc%d0%b5%d0%bd%d0%b5%d0%bd%d0%b8%d1%8f' class='anchor'>#</a>
+</h2><p>CAN-шина или <strong>CAN (Controller Area Network)</strong> &ndash; это промышленный стандарт последовательной сети, предназначенный для обмена данными между микроконтроллерами и устройствами без использования центрального компьютера (multi-master). Стандарт определен ISO (ISO 11898).</p>
+<p><strong>Ключевая идея</strong> &ndash; несколько устройств делят одну дифференциальную линию и сами договариваются, кто передает первым. При этом:</p>
+<ul>
+<li>нет коллизий с потерей кадра;</li>
+<li>приоритет сообщения определяется его идентификатором;</li>
+<li>ошибки детектируются аппаратно;</li>
+<li>неисправный узел автоматически изолируется.</li>
+</ul>
+<p><strong>Область применения</strong> &ndash; автомобилестроение (ABS, двигатель), авиация, спутниковые системы (CubeSat, LEO-группировки), промышленная автоматизация, лифтовое оборудование.</p>
+<h2 id='используемые-уровни-osi'>Используемые уровни OSI<a href='#%d0%b8%d1%81%d0%bf%d0%be%d0%bb%d1%8c%d0%b7%d1%83%d0%b5%d0%bc%d1%8b%d0%b5-%d1%83%d1%80%d0%be%d0%b2%d0%bd%d0%b8-osi' class='anchor'>#</a>
+</h2><p>Протокол CAN в классическом виде описывает только два нижних уровня модели OSI:</p>
+<ul>
+<li><strong>Physical Layer (физический уровень)</strong> &ndash; определяет электрические параметры передачи, уровни сигналов (CAN_H и CAN_L) и требования к физической среде.</li>
+<li><strong>Data Link Layer (канальный уровень)</strong> &ndash; определяет формат кадра, механизм арбитража, обнаружение и обработку ошибок, а также управление доступом к общей шине.</li>
+</ul>
+<h2 id='описание-структуры-фрейма-standard-can-20a'>Описание структуры фрейма (Standard CAN 2.0A)<a href='#%d0%be%d0%bf%d0%b8%d1%81%d0%b0%d0%bd%d0%b8%d0%b5-%d1%81%d1%82%d1%80%d1%83%d0%ba%d1%82%d1%83%d1%80%d1%8b-%d1%84%d1%80%d0%b5%d0%b9%d0%bc%d0%b0-standard-can-20a' class='anchor'>#</a>
+</h2><p>Упрощенная структура стандартного кадра представлена на диаграмме. Каждое поле &ndash; это отдельный этап жизни одного сообщения на CAN-шине.</p>
+<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">graph LR
+    SOF --&gt; Arbitration --&gt; Control --&gt; Data --&gt; CRC --&gt; ACK --&gt; EOF --&gt; Intermission
+</code></pre><p>Таблица 1 &ndash; Детализация полей</p>
+<style>
+  .custom-table {
+    width: 100% !important;
+    border-collapse: collapse;
+    table-layout: auto !important;
+  }
+
+  .custom-table td:nth-child(1), .custom-table th:nth-child(1),
+  .custom-table td:nth-child(2), .custom-table th:nth-child(2) {
+    white-space: nowrap !important;
+  }
+
+  .custom-table td:nth-child(3), .custom-table th:nth-child(3) {
+    width: auto !important;
+    white-space: normal !important;
+    word-wrap: break-word;
+  }
+</style>
+<table class="custom-table">
+    <tr>
+        <th style="text-align: center; vertical-align: center;">Поле</th>
+        <th style="text-align: center; vertical-align: center;">Размер<br>(бит)</th>
+        <th style="text-align: center; vertical-align: center;">Описание</th>
+    </tr>
+    <tr>
+        <td>SOF<br>(Start of Frame)</td>
+        <td>1</td>
+        <td><strong>Начало кадра</strong>. Доминантный бит («0»), обеспечивающий жесткую синхронизацию генераторов всех узлов сети</td>
+    </tr>
+    <tr>
+        <td>Arbitration Field</td>
+        <td>12</td>
+        <td><strong>Поле арбитража</strong>. Включает 11-битный идентификатор (ID) и бит RTR. Определяет приоритет сообщения при одновременном доступе к шине</td>
+    </tr>
+    <tr>
+        <td>Control Field</td>
+        <td>6</td>
+        <td><strong>Поле управления</strong>. Содержит бит IDE (0 для Standard), резервный бит r0 и 4-битный код DLC (Data Length Code), указывающий количество байт данных</td>
+    </tr>
+    <tr>
+        <td>Data Field</td>
+        <td>0–64</td>
+        <td><strong>Поле данных</strong>. Полезная нагрузка сообщения (от 0 до 8 байт)</td>
+    </tr>
+    <tr>
+        <td>CRC Field</td>
+        <td>16</td>
+        <td><strong>Контрольная сумма</strong>. 15-битная последовательность для проверки целостности кадра и 1-битный рецессивный разделитель (CRC Delimiter)</td>
+    </tr>
+    <tr>
+        <td>ACK Field</td>
+        <td>2</td>
+        <td><strong>Поле подтверждения</strong>. Состоит из ACK Slot (приемники инвертируют в «0» при валидном CRC) и рецессивного разделителя (ACK Delimiter)</td>
+    </tr>
+    <tr>
+        <td>EOF<br>(End of Frame)</td>
+        <td>7</td>
+        <td><strong>Конец кадра</strong>. Фиксированная последовательность из 7 рецессивных бит («1»), сигнализирующая о завершении транзакции</td>
+    </tr>
+    <tr>
+        <td>Intermission</td>
+        <td>3</td>
+        <td><strong>Межкадровый интервал</strong>. Минимальное время ожидания перед началом следующего цикла арбитража</td>
+    </tr>
+ </table>
+<div class="sc-alert sc-alert-info"><ul>
+<li>Бит <strong>RTR</strong> используется для запроса данных от другого узла. В обычных данных он доминантный («0»)</li>
+<li><strong>Bit Stuffing</strong>: обратите внимание, что физически в шине бит может быть чуть больше, так как контроллер вставляет «стаффинговые» биты для синхронизации (после каждых 5 одинаковых бит), но они удаляются приемником и не считаются частью логической структуры</li>
+</ul>
+</div>
+<h2 id='описание-механизма-арбитрации'>Описание механизма арбитрации<a href='#%d0%be%d0%bf%d0%b8%d1%81%d0%b0%d0%bd%d0%b8%d0%b5-%d0%bc%d0%b5%d1%85%d0%b0%d0%bd%d0%b8%d0%b7%d0%bc%d0%b0-%d0%b0%d1%80%d0%b1%d0%b8%d1%82%d1%80%d0%b0%d1%86%d0%b8%d0%b8' class='anchor'>#</a>
+</h2><p>В основе механизма доступа к шине CAN лежит алгоритм <strong>CSMA/CR</strong> (Carrier Sense Multiple Access with Collision Resolution) &ndash; множественный доступ с прослушиванием несущей и разрешением коллизий:</p>
+<ul>
+<li>Шина имеет два состояния: <strong>Доминантное (0)</strong> и <strong>Рецессивное (1)</strong>. Ноль всегда «побеждает» единицу.</li>
+<li>Если два узла начинают передачу одновременно, они сравнивают свои ID побитно.</li>
+<li>Как только один узел передает «1», а видит на шине «0» (от другого узла), он понимает, что его приоритет ниже, и мгновенно переходит в режим приема.</li>
+<li><strong>Итог</strong>: узел с самым низким числовым значением ID имеет наивысший приоритет и передает данные без задержек.</li>
+</ul>
+<p><strong>Следствие для проектирования</strong>: схема идентификаторов должна разрабатываться на этапе архитектуры системы, поскольку она определяет приоритеты сообщений.</p>
+<h2 id='механизм-обнаружения-и-обработки-ошибок'>Механизм обнаружения и обработки ошибок<a href='#%d0%bc%d0%b5%d1%85%d0%b0%d0%bd%d0%b8%d0%b7%d0%bc-%d0%be%d0%b1%d0%bd%d0%b0%d1%80%d1%83%d0%b6%d0%b5%d0%bd%d0%b8%d1%8f-%d0%b8-%d0%be%d0%b1%d1%80%d0%b0%d0%b1%d0%be%d1%82%d0%ba%d0%b8-%d0%be%d1%88%d0%b8%d0%b1%d0%be%d0%ba' class='anchor'>#</a>
+</h2><p>CAN считается одной из самых надежных шин благодаря 5 методам контроля:</p>
+<ul>
+<li><strong>Bit Monitoring</strong> &ndash; узел читает то, что сам выдает в шину. Если уровни не совпадают — ошибка.</li>
+<li><strong>Bit Stuffing</strong> &ndash; после 5 одинаковых бит вставляется инверсный бит для синхронизации.</li>
+<li><strong>CRC Check</strong> &ndash; проверка контрольной суммы.</li>
+<li><strong>Form Error</strong> &ndash; проверка структуры (стоп-биты и т.д.).</li>
+<li><strong>ACK Check</strong> &ndash; если никто не подтвердил прием, передатчик фиксирует ошибку.</li>
+</ul>
+<p>Состояния узла CAN:</p>
+<ul>
+<li><strong>Error Active</strong> &ndash; нормальный режим работы;</li>
+<li><strong>Error Passive</strong> &ndash; повышенный уровень ошибок;</li>
+<li><strong>Bus Off</strong> &ndash; отключен от шины</li>
+</ul>
+<div class="sc-alert sc-alert-warning">Узлы имеют счётчики ошибок, которые отслеживают различные типы ошибок (например, битовые ошибки, ошибки CRC и др.).<br>
+Если количество ошибок превышает критический порог, узел переходит в состояние <strong>Bus Off</strong>, автоматически отключаясь от шины, чтобы не нарушать работу остальных устройств сети. В этом состоянии узел прекращает передачу данных и не может участвовать в арбитраже, пока не выполнит процедуру восстановления</div>
+<h1 id='стек-canopen'>Стек CANopen<a href='#%d1%81%d1%82%d0%b5%d0%ba-canopen' class='anchor'>#</a>
+</h1><h2 id='назначение-стека-canopen'>Назначение стека CANopen<a href='#%d0%bd%d0%b0%d0%b7%d0%bd%d0%b0%d1%87%d0%b5%d0%bd%d0%b8%d0%b5-%d1%81%d1%82%d0%b5%d0%ba%d0%b0-canopen' class='anchor'>#</a>
+</h2><p>Если CAN &ndash; это «провода и способ кричать», то <strong>CANopen</strong> &ndash; это «язык общения и правила вежливости». Это протокол прикладного уровня, который стандартизует, как именно данные (температура, скорость, команды) распределяются внутри сети.</p>
+<h2 id='используемые-уровни-osi-1'>Используемые уровни OSI<a href='#%d0%b8%d1%81%d0%bf%d0%be%d0%bb%d1%8c%d0%b7%d1%83%d0%b5%d0%bc%d1%8b%d0%b5-%d1%83%d1%80%d0%be%d0%b2%d0%bd%d0%b8-osi-1' class='anchor'>#</a>
+</h2><p>CANopen реализует прикладной уровень поверх CAN.:</p>
+<ul>
+<li><strong>Application Layer (прикладной уровень)</strong> &ndash; определяет структуру данных, модель взаимодействия устройств, типы сервисов (PDO, SDO, NMT, EMCY), а также правила адресации узлов и структуру словаря объектов.</li>
+</ul>
+<p>CANopen не заменяет канальный уровень, а использует CAN как транспорт. Он стандартизует прикладную модель взаимодействия устройств поверх механизма передачи кадров CAN</p>
+<h2 id='словарь-объектов'>Словарь объектов<a href='#%d1%81%d0%bb%d0%be%d0%b2%d0%b0%d1%80%d1%8c-%d0%be%d0%b1%d1%8a%d0%b5%d0%ba%d1%82%d0%be%d0%b2' class='anchor'>#</a>
+</h2><p>Словарь объектов (Object Dictionary, OD) &ndash; это таблица (база данных), где каждой настройке или переменной присвоен индекс:</p>
+<ul>
+<li><strong>Index (16 бит)</strong> &ndash; адрес ячейки (например, 0x1000 &ndash; тип устройства);</li>
+<li><strong>Subindex (8 бит)</strong> &ndash; дополнительное деление для массивов или структур.<br>
+Любое общение в сети сводится к чтению или записи в эти ячейки.</li>
+</ul>
+<p>Таблица 2 &ndash; Типовые диапазоны индексов</p>
+<style>
+  .simple-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto !important;
+  }
+
+  .simple-table td:first-child,
+  .simple-table th:first-child {
+    white-space: nowrap;
+  }
+
+  .simple-table td:nth-child(2),
+  .simple-table th:nth-child(2) {
+    width: auto;
+    white-space: normal;
+</style>
+<table class="simple-table">
+    <tr>
+        <th style="text-align: center; vertical-align: center;">Диапазон</th>
+        <th style="text-align: center; vertical-align: center;">Назначение</th>
+    </tr>
+    <tr>
+        <td>0x0000–0x0FFF</td>
+        <td>Зарезервировано</td>
+    </tr>
+    <tr>
+        <td>0x1000–0x1FFF</td>
+        <td>Communication Profile Area</td>
+    </tr>
+    <tr>
+        <td>0x2000–0x5FFF</td>
+        <td>Manufacturer Specific</td>
+    </tr>
+    <tr>
+        <td>0x6000–0x9FFF</td>
+        <td>Standardized Device Profile Area</td>
+    </tr>
+    <tr>
+        <td>0xA000–0xFFFF</td>
+        <td>Reserved</td>
+    </tr>
+ </table>
+<h2 id='типы-объектов-коммуникации'>Типы объектов коммуникации<a href='#%d1%82%d0%b8%d0%bf%d1%8b-%d0%be%d0%b1%d1%8a%d0%b5%d0%ba%d1%82%d0%be%d0%b2-%d0%ba%d0%be%d0%bc%d0%bc%d1%83%d0%bd%d0%b8%d0%ba%d0%b0%d1%86%d0%b8%d0%b8' class='anchor'>#</a>
+</h2><p>Для передачи данных используются четыре основных механизма:</p>
+<ul>
+<li><strong>SDO (Service Data Object)</strong> &ndash; прямой доступ к словарю объектов.<br>
+Надежный (с подтверждением), но медленный. Используется для настройки.</li>
+<li><strong>PDO (Process Data Object)</strong> &ndash; быстрая передача данных без квитирования.<br>
+Привязывается к событиям (таймер, изменение данных). Бывает TPDO (передача) и RPDO (прием).</li>
+<li><strong>NMT (Network Management)</strong> &ndash; команды управления состоянием узлов (Start, Stop, Pre-operational).</li>
+<li><strong>Special Function Objects</strong> &ndash; синхронизация (SYNC), сообщения об ошибках (EMCY), временные метки (TIME).</li>
+</ul>
+<h2 id='адресация-узлов-node-id'>Адресация узлов (Node-ID)<a href='#%d0%b0%d0%b4%d1%80%d0%b5%d1%81%d0%b0%d1%86%d0%b8%d1%8f-%d1%83%d0%b7%d0%bb%d0%be%d0%b2-node-id' class='anchor'>#</a>
+</h2><p>Каждое устройство в сети получает уникальный идентификатор <strong>Node-ID</strong> (от 1 до 127). Значение 0 используется для широковещательных сообщений управления.</p>
+<ul>
+<li>Адресация в CANopen строится на комбинации типа сообщения (Function Code) и Node-ID.</li>
+<li>Идентификатор кадра (CAN ID) для SDO-запроса вычисляется по принципу: <em>COB-ID = Function Code + Node-ID</em>.</li>
+<li>Это позволяет избежать конфликтов идентификаторов в сети.</li>
+</ul>
+<h1 id='глоссарий'>Глоссарий<a href='#%d0%b3%d0%bb%d0%be%d1%81%d1%81%d0%b0%d1%80%d0%b8%d0%b9' class='anchor'>#</a>
+</h1><h2 id='протокол-can-нижний-уровень'>Протокол CAN (Нижний уровень)<a href='#%d0%bf%d1%80%d0%be%d1%82%d0%be%d0%ba%d0%be%d0%bb-can-%d0%bd%d0%b8%d0%b6%d0%bd%d0%b8%d0%b9-%d1%83%d1%80%d0%be%d0%b2%d0%b5%d0%bd%d1%8c' class='anchor'>#</a>
+</h2><p><strong>CAN (Controller Area Network)</strong> &ndash; последовательная промышленная шина, стандартизованная ISO 11898, реализующая физический и канальный уровни модели OSI для обмена сообщениями между узлами без центрального контроллера.<br>
+<strong>Physical Layer (Физический уровень)</strong> &ndash; первый уровень модели OSI. Определяет электрические параметры передачи, уровни сигналов CAN_H и CAN_L, синхронизацию и требования к среде передачи.<br>
+<strong>Data Link Layer (Канальный уровень)</strong> &ndash; второй уровень модели OSI. Определяет формат кадра CAN, механизм арбитража, обнаружение ошибок и управление доступом к шине.<br>
+<strong>Identifier (ID)</strong> &ndash; 11-битное (Standard) или 29-битное (Extended) значение, определяющее приоритет сообщения на шине CAN.<br>
+<strong>Arbitration (Арбитраж)</strong> &ndash; механизм разрешения одновременной передачи нескольких узлов. Побеждает сообщение с наименьшим числовым значением идентификатора.<br>
+<strong>CSMA/CR (Carrier Sense Multiple Access with Collision Resolution)</strong> &ndash; алгоритм множественного доступа с прослушиванием несущей и разрешением коллизий, используемый в CAN.<br>
+<strong>Dominant Bit (Доминантный бит)</strong> &ndash; логический «0». На физическом уровне он «сильнее» и всегда подавляет рецессивный бит.<br>
+<strong>Recessive Bit (Рецессивный бит)</strong> &ndash; логическая «1». Присутствует на шине только при отсутствии доминантного бита.<br>
+<strong>Bit Stuffing</strong> &ndash; метод синхронизации: после 5 одинаковых бит подряд контроллер автоматически вставляет один противоположный бит.<br>
+<strong>CRC (Cyclic Redundancy Check)</strong> &ndash; метод проверки целостности кадра на основе 15-битной контрольной суммы.<br>
+<strong>Error Active</strong> &ndash; состояние узла CAN при нормальном уровне ошибок. Узел участвует в передаче и может формировать активные error-фреймы.<br>
+<strong>Error Passive</strong> &ndash; состояние узла при повышенном уровне ошибок. Узел ограничен в генерации активных ошибок.<br>
+<strong>Bus Off</strong> &ndash; состояние узла, при котором он отключается от шины из-за критического количества ошибок, чтобы не мешать остальным.<br>
+<strong>RTR (Remote Transmission Request)</strong> &ndash; бит запроса данных. Позволяет одному узлу попросить другой прислать конкретное сообщение.</p>
+<h2 id='стек-canopen-верхний-уровень'>Стек CANopen (Верхний уровень)<a href='#%d1%81%d1%82%d0%b5%d0%ba-canopen-%d0%b2%d0%b5%d1%80%d1%85%d0%bd%d0%b8%d0%b9-%d1%83%d1%80%d0%be%d0%b2%d0%b5%d0%bd%d1%8c' class='anchor'>#</a>
+</h2><p><strong>CANopen</strong> &ndash; протокол прикладного уровня поверх CAN, стандартизующий модель данных, типы сервисов и правила взаимодействия устройств.<br>
+<strong>Application Layer (Прикладной уровень)</strong> &ndash; седьмой уровень модели OSI. В CANopen определяет структуру данных, словарь объектов и правила обмена сообщениями.<br>
+<strong>Object Dictionary (OD)</strong> &ndash; структурированная таблица параметров CANopen-устройства, организованная по 16-битным индексам и 8-битным субиндексам.<br>
+<strong>Index</strong> &ndash; 16-битный адрес записи в словаре объектов CANopen.<br>
+<strong>Subindex</strong> &ndash; 8-битное расширение индекса, используемое для обращения к элементам массива или структуры.<br>
+<strong>SDO (Service Data Object)</strong> &ndash; механизм надёжного доступа к словарю объектов с подтверждением передачи.<br>
+<strong>PDO (Process Data Object)</strong> &ndash; механизм быстрой передачи данных без подтверждения, предназначенный для обмена процессными переменными.<br>
+<strong>NMT (Network Management)</strong> &ndash; механизм управления состояниями узлов CANopen (Start, Stop, Pre-operational).<br>
+<strong>SYNC</strong> &ndash; сообщение синхронизации в CANopen, обеспечивающее одновременное обновление данных.<br>
+<strong>EMCY (Emergency Message)</strong> &ndash; сообщение экстренного уведомления об ошибке устройства в CANopen.<br>
+<strong>Node-ID</strong> &ndash; уникальный идентификатор устройства CANopen в диапазоне 1–127.</p>
+<hr>
+
+<style>
+  #disqus_thread {
+    max-width: 900px;
+    margin: 40px auto;
+    padding-top: 40px;
+  }
+</style>    
+
+    <div id="disqus_thread"></div>
+    <script>
+      var disqus_config = function () {
+        this.page.url = "https:\/\/gosyuliya.github.io\/docs\/tech_docs\/tech_2\/";
+        this.page.identifier = "https:\/\/gosyuliya.github.io\/docs\/tech_docs\/tech_2\/";
+      };
+      (function() {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://gosyuliya.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div><div class="column is-sticky is-paddingless" id="tocWrapper">
+  <div class="is-paddingless" id="tocContainer">
+    <div class="toc-header">
+      <h6 class="toc-title is-marginless">Содержание:</h6>
+      <i
+        title="Вернуться наверх"
+        id="tocBackToTop"
+        class="fa-solid fa-circle-arrow-up"
+      ></i>
+    </div>
+    <div id="tocContent">
+      <div id="toc"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#протокол-can">Протокол CAN</a>
+      <ul>
+        <li><a href="#назначение-и-область-применения">Назначение и область применения</a></li>
+        <li><a href="#используемые-уровни-osi">Используемые уровни OSI</a></li>
+        <li><a href="#описание-структуры-фрейма-standard-can-20a">Описание структуры фрейма (Standard CAN 2.0A)</a></li>
+        <li><a href="#описание-механизма-арбитрации">Описание механизма арбитрации</a></li>
+        <li><a href="#механизм-обнаружения-и-обработки-ошибок">Механизм обнаружения и обработки ошибок</a></li>
+      </ul>
+    </li>
+    <li><a href="#стек-canopen">Стек CANopen</a>
+      <ul>
+        <li><a href="#назначение-стека-canopen">Назначение стека CANopen</a></li>
+        <li><a href="#используемые-уровни-osi-1">Используемые уровни OSI</a></li>
+        <li><a href="#словарь-объектов">Словарь объектов</a></li>
+        <li><a href="#типы-объектов-коммуникации">Типы объектов коммуникации</a></li>
+        <li><a href="#адресация-узлов-node-id">Адресация узлов (Node-ID)</a></li>
+      </ul>
+    </li>
+    <li><a href="#глоссарий">Глоссарий</a>
+      <ul>
+        <li><a href="#протокол-can-нижний-уровень">Протокол CAN (Нижний уровень)</a></li>
+        <li><a href="#стек-canopen-верхний-уровень">Стек CANopen (Верхний уровень)</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+      <div id="taxonomies"><div class="taxonomy-wrapper"></div><div class="taxonomy-wrapper"></div></div>
+    </div>
+  </div>
+  <div
+    class="is-paddingless"
+    id="tocCollapsible"
+    title="Свернуть/Развернуть оглавление"
+  >
+    <i class="fa-solid fa-angles-right fa-lg"></i>
+  </div>
+</div>
+</div>
+</div><script type='text/javascript'>
+  const baseUrl = new URL('', 'https:\/\/gosyuliya.github.io\/docs\/').href;
+  const codeCopyBefore = 'Скопировать в буфер обмена';
+  const codeCopyAfter = 'Скопировано в буфер обмена';
+  const svgDownloadLabel = 'Скачать в формате SVG';
+  const helperLoadingLabel = 'Загрузка';
+  const searchNoResults = 'Поиск не дал результатов';
+  const introNextLabel = 'Следующий';
+  const introPrevLabel = 'Предыдущий';
+  const introSkipLabel = '✗';
+  const introDoneLabel = 'Сделано';
+  const printLabel = 'Распечатать текущую страницу';
+  const qrCodeLabel = 'Показать QR-код текущей страницы';
+  const naCommonLabel = 'Отсутствует';
+  const jsoneditorValidateError = '';
+</script>
+<script
+      type="module"
+      src="/docs/js/theme/modules/const.min.js"
+    ></script><script
+      type="module"
+      src="/docs/js/theme/modules/helpers.min.js"
+    ></script><script
+      type="module"
+      src="/docs/js/theme/modules/helpersGlobal.min.js"
+    ></script><script
+      type="module"
+      src="/docs/js/theme/init.min.js"
+    ></script><script
+      type="module"
+      src="/docs/js/theme/navbar.min.js"
+    ></script><script
+      type="module"
+      src="/docs/js/theme/print.min.js"
+    ></script><script
+      type="module"
+      src="/docs/js/theme/qrcode.min.js"
+    ></script><script
+      type="module"
+      src="/docs/js/theme/search.min.js"
+    ></script><script
+      type="module"
+      src="/docs/js/theme/shortcuts.min.js"
+    ></script><script
+      type="module"
+      src="/docs/js/theme/sidebar.min.js"
+    ></script><script
+      type="module"
+      src="/docs/js/theme/toc.min.js"
+    ></script><script
+      type="module"
+      src="/docs/js/fencedcodes/mermaid.min.js"
+    ></script><script
+      type="text/javascript"
+      src="/docs/js/theme/browserCompatibility.min.js"
+    ></script><script
+      type="text/javascript"
+      src="/docs/js/external/flexsearch/flexsearch.bundle.min.js"
+    ></script><script
+      type="text/javascript"
+      src="/docs/js/external/qrious/qrious.min.js"
+    ></script><script
+      type="text/javascript"
+      src="/docs/js/external/overlay-scrollbars/overlayscrollbars.min.js"
+    ></script><script
+      type="text/javascript"
+      src="/docs/js/external/mermaid/mermaid.min.js"
+    ></script>
+</body>
+</html>
+
+<link rel="stylesheet" href="/docs/css/custom.css">
+
+
+

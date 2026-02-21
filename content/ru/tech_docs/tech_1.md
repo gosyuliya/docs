@@ -1,7 +1,6 @@
 ---
 title: "Шаблоны для конфигурации backend сервисов с OPA"
-slug: "pl_1"
-#description: ""
+slug: "tech_1"
 weight: 1
 ---
 

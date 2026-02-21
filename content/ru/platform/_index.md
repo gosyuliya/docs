@@ -1,6 +1,5 @@
 ---
 title: "Платформа"
-#description: ""
 titleIcon: "fa-solid fa-shapes"
 weight: 2
 ---
