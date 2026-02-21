@@ -1,5 +1,6 @@
 ---
 title: "Шаблоны для конфигурации backend сервисов с OPA"
+description: "Господарик Юлия"
 slug: "tech_1"
 weight: 1
 ---
@@ -71,71 +72,5 @@ spec:
 {{- acr-pdp.sidecar.container" . | nindent 8 }}
 ```
 Этот код добавит контейнер с конфигурацией PDP в качестве sidecar, используя параметры, заданные в `values.yaml`.
-
----
-
-# Таблица Markdown
-
-| Наименование |  | Фактическое значение |  | Плановое значение |  | Итоговое значение |
-| --- | --- | --- | --- | --- |  --- | --- |
-|  |  | А | В | А | В |  |
-| Позиция 1 |  | 5 | 5 | 10 | 5 | 25 |
-| NOTE | Важное примечание |  |
-| Позиция 2  |  | 5 | 5 | 10 | 5 | 25 |
-| Позиция 3 |  | 0 | 5 | 10 | 5 | 20 |
-| Итого: |  | 25 |  | 45 |  | 70 |
-
----
-
-# Таблица HTML
-
-<table>
-    <tr>
-        <th rowspan="2" colspan="2" style="text-align: center; vertical-align: center;">Наименование</th>
-        <th colspan="2" style="text-align: center; vertical-align: center;">Фактическое значение</th>
-        <th colspan="2" style="text-align: center; vertical-align: center;">Плановое значение</th>
-        <th rowspan="2" style="text-align: center; vertical-align: center;">Итоговое значение</th>
-    </tr>
-    <tr>
-        <th style="text-align: center; vertical-align: center;">А</th>
-        <th style="text-align: center; vertical-align: center;">В</th>
-        <th style="text-align: center; vertical-align: center;">А</th>
-        <th style="text-align: center; vertical-align: center;">В</th>
-    </tr>
-    <tr>
-        <td colspan="2">Позиция 1 </td>
-        <td rowspan="2">5</td>
-        <td rowspan="2">5</td>
-        <td rowspan="2">10</td>
-        <td rowspan="2">5</td>
-        <td rowspan="2">25</td>
-    </tr>
-    <tr>
-        <td>NOTE</td>
-        <td>Важное примечание</td>
-    </tr>
-    <tr>
-        <td colspan="2">Позиция 2</td>
-        <td>5</td>
-        <td>5</td>
-        <td>10</td>
-        <td>5</td>
-        <td>25</td>
-    </tr>
-    <tr>
-        <td colspan="2">Позиция 3</td>
-        <td>5</td>
-        <td>5</td>
-        <td>10</td>
-        <td>5</td>
-        <td>25</td>
-    </tr>
-    <tr>
-        <td colspan="2">Итого:</td>
-        <td colspan="2">5</td>
-        <td colspan="2">5</td>
-        <td>25</td>
-    </tr>
-</table>
 
 ---

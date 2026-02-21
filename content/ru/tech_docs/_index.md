@@ -1,5 +1,6 @@
 ---
 title: "Техническая документация"
+description: "Господарик Юлия"
 titleIcon: "fa-solid fa-code-pull-request"
 weight: 5
 comments: false
