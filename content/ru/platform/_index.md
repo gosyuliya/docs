@@ -1,6 +1,6 @@
 ---
 title: "Платформа"
-description: "Описание функциональных особенностей Платформы Цифриума"
+#description: ""
 titleIcon: "fa-solid fa-shapes"
 weight: 2
 ---

@@ -1,6 +1,5 @@
 ---
 title: "Техническая документация"
-# description: "Описание функциональных особенностей Платформы Цифриума"
 titleIcon: "fa-solid fa-code-pull-request"
 weight: 5
 comments: false

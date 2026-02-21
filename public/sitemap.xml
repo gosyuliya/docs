@@ -2,53 +2,53 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/docs/questions/github/</loc>
+    <loc>https://gosyuliya.github.io/docs/questions/github/</loc>
     <lastmod>2025-01-26T23:11:58+03:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/docs/library/books/analitics/</loc>
+    <loc>https://gosyuliya.github.io/docs/library/books/analitics/</loc>
     <lastmod>2024-11-01T08:41:49+03:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/docs/introduction/</loc>
+    <loc>https://gosyuliya.github.io/docs/introduction/</loc>
+    <lastmod>2026-02-20T16:29:10+03:00</lastmod>
+  </url><url>
+    <loc>https://gosyuliya.github.io/docs/library/terms/</loc>
+    <lastmod>2026-02-20T16:29:10+03:00</lastmod>
+  </url><url>
+    <loc>https://gosyuliya.github.io/docs/tech_docs/pl_1/</loc>
     <lastmod>2025-01-26T23:11:58+03:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/docs/library/terms/</loc>
-    <lastmod>2024-11-01T08:41:49+03:00</lastmod>
+    <loc>https://gosyuliya.github.io/docs/tech_docs/pl_2/</loc>
+    <lastmod>2026-02-20T16:29:10+03:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/docs/tech_docs/pl_1/</loc>
-    <lastmod>2025-01-26T23:11:58+03:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/docs/library/books/</loc>
+    <loc>https://gosyuliya.github.io/docs/library/books/</loc>
     <lastmod>2024-11-04T22:10:51+03:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/docs/tech_docs/pl_2/</loc>
-    <lastmod>2024-10-28T13:18:19+03:00</lastmod>
+    <loc>https://gosyuliya.github.io/docs/platform/</loc>
+    <lastmod>2026-02-20T16:29:10+03:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/docs/platform/</loc>
+    <loc>https://gosyuliya.github.io/docs/admin_panel/</loc>
     <lastmod>2025-01-26T23:11:58+03:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/docs/admin_panel/</loc>
-    <lastmod>2025-01-26T23:11:58+03:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/docs/library/links/</loc>
+    <loc>https://gosyuliya.github.io/docs/library/links/</loc>
     <lastmod>2024-11-04T22:10:51+03:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/docs/guides/</loc>
+    <loc>https://gosyuliya.github.io/docs/guides/</loc>
     <lastmod>2025-01-26T23:11:58+03:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/docs/tech_docs/</loc>
-    <lastmod>2025-01-26T23:11:58+03:00</lastmod>
+    <loc>https://gosyuliya.github.io/docs/tech_docs/</loc>
+    <lastmod>2026-02-20T16:29:10+03:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/docs/questions/</loc>
+    <loc>https://gosyuliya.github.io/docs/questions/</loc>
     <lastmod>2024-11-04T22:10:51+03:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/docs/library/</loc>
+    <loc>https://gosyuliya.github.io/docs/library/</loc>
     <lastmod>2024-11-04T22:10:51+03:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/docs/categories/</loc>
+    <loc>https://gosyuliya.github.io/docs/categories/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/tags/</loc>
+    <loc>https://gosyuliya.github.io/docs/tags/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/</loc>
-    <lastmod>2025-01-26T23:11:58+03:00</lastmod>
+    <loc>https://gosyuliya.github.io/docs/</loc>
+    <lastmod>2026-02-20T16:41:04+03:00</lastmod>
   </url>
 </urlset>
