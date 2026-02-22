@@ -486,9 +486,52 @@
 </ul>
 <h2 id='описание-структуры-фрейма-standard-can-20a'>Описание структуры фрейма (Standard CAN 2.0A)<a href='#%d0%be%d0%bf%d0%b8%d1%81%d0%b0%d0%bd%d0%b8%d0%b5-%d1%81%d1%82%d1%80%d1%83%d0%ba%d1%82%d1%83%d1%80%d1%8b-%d1%84%d1%80%d0%b5%d0%b9%d0%bc%d0%b0-standard-can-20a' class='anchor'>#</a>
 </h2><p>Упрощенная структура стандартного кадра представлена на диаграмме. Каждое поле &ndash; это отдельный этап жизни одного сообщения на CAN-шине.</p>
-<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">graph LR
-    SOF --&gt; Arbitration --&gt; Control --&gt; Data --&gt; CRC --&gt; ACK --&gt; EOF --&gt; Intermission
-</code></pre><p>Таблица 1 &ndash; Детализация полей</p>
+<svg width="900" height="80" viewBox="0 0 900 80" xmlns="http://www.w3.org">
+  <!-- Определяем стрелку (маркер) -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666" />
+    </marker>
+  </defs>
+  <!-- Стили для текста и блоков -->
+  <style>
+    rect { fill: #f9f9f9; stroke: #333; stroke-width: 1.5; }
+    text { font-family: sans-serif; font-size: 12px; text-anchor: middle; dominant-baseline: middle; }
+  </style>
+  <!-- Блоки -->
+  <g transform="translate(10, 20)">
+    <rect width="50" height="40" rx="5" /> <text x="25" y="20">SOF</text>
+    <line x1="50" y1="20" x2="65" y2="20" stroke="#666" marker-end="url(#arrowhead)" />
+    <g transform="translate(75, 0)">
+      <rect width="80" height="40" rx="5" /> <text x="40" y="20">Arbitration</text>
+      <line x1="80" y1="20" x2="95" y2="20" stroke="#666" marker-end="url(#arrowhead)" />
+    </g>
+    <g transform="translate(180, 0)">
+      <rect width="70" height="40" rx="5" /> <text x="35" y="20">Control</text>
+      <line x1="70" y1="20" x2="85" y2="20" stroke="#666" marker-end="url(#arrowhead)" />
+    </g>
+    <g transform="translate(275, 0)">
+      <rect width="60" height="40" rx="5" /> <text x="30" y="20">Data</text>
+      <line x1="60" y1="20" x2="75" y2="20" stroke="#666" marker-end="url(#arrowhead)" />
+    </g>
+    <g transform="translate(360, 0)">
+      <rect width="50" height="40" rx="5" /> <text x="25" y="20">CRC</text>
+      <line x1="50" y1="20" x2="65" y2="20" stroke="#666" marker-end="url(#arrowhead)" />
+    </g>
+    <g transform="translate(435, 0)">
+      <rect width="50" height="40" rx="5" /> <text x="25" y="20">ACK</text>
+      <line x1="50" y1="20" x2="65" y2="20" stroke="#666" marker-end="url(#arrowhead)" />
+    </g>
+    <g transform="translate(510, 0)">
+      <rect width="50" height="40" rx="5" /> <text x="25" y="20">EOF</text>
+      <line x1="50" y1="20" x2="65" y2="20" stroke="#666" marker-end="url(#arrowhead)" />
+    </g>
+    <g transform="translate(585, 0)">
+      <rect width="90" height="40" rx="5" /> <text x="45" y="20">Intermission</text>
+    </g>
+  </g>
+</svg>
+<p>Таблица 1 &ndash; Детализация полей стандартного кадра</p>
 <style>
   .custom-table {
     width: 100% !important;
@@ -521,7 +564,7 @@
     <tr>
         <td>Arbitration Field</td>
         <td>12</td>
-        <td><strong>Поле арбитража</strong>. Включает 11-битный идентификатор (ID) и бит RTR. Определяет приоритет сообщения при одновременном доступе к шине</td>
+        <td><strong>Поле арбитража</strong>. Включает 11-битный идентификатор (ID) и бит RTR. Определяет приоритет сообщения при одновременном доступе к шине.<br><i>Бит RTR используется для запроса данных от другого узла. В обычных данных он доминантный («0»)</td>
     </tr>
     <tr>
         <td>Control Field</td>
@@ -554,15 +597,11 @@
         <td><strong>Межкадровый интервал</strong>. Минимальное время ожидания перед началом следующего цикла арбитража</td>
     </tr>
  </table>
-<div class="sc-alert sc-alert-info"><ul>
-<li>
-<p>Бит <strong>RTR</strong> используется для запроса данных от другого узла. В обычных данных он доминантный («0»).</p>
-</li>
-<li>
-<p><strong>Bit Stuffing</strong>: обратите внимание, что физически в шине бит может быть чуть больше, так как контроллер вставляет «стаффинговые» биты для синхронизации (после каждых 5 одинаковых бит), но они удаляются приемником и не считаются частью логической структуры.</p>
-</li>
-</ul>
-</div>
+<div class="sc-alert sc-alert-info">Обратите внимание, что физически в шине бит может быть чуть больше, так как контроллер вставляет <a
+  href="#%d0%bc%d0%b5%d1%85%d0%b0%d0%bd%d0%b8%d0%b7%d0%bc-%d0%be%d0%b1%d0%bd%d0%b0%d1%80%d1%83%d0%b6%d0%b5%d0%bd%d0%b8%d1%8f-%d0%b8-%d0%be%d0%b1%d1%80%d0%b0%d0%b1%d0%be%d1%82%d0%ba%d0%b8-%d0%be%d1%88%d0%b8%d0%b1%d0%be%d0%ba"
+    class="is-pretty-link">«стаффинговые»</a
+>
+ биты для синхронизации (после каждых 5 одинаковых бит), но они удаляются приемником и не считаются частью логической структуры.</div>
 <h2 id='описание-механизма-арбитрации'>Описание механизма арбитрации<a href='#%d0%be%d0%bf%d0%b8%d1%81%d0%b0%d0%bd%d0%b8%d0%b5-%d0%bc%d0%b5%d1%85%d0%b0%d0%bd%d0%b8%d0%b7%d0%bc%d0%b0-%d0%b0%d1%80%d0%b1%d0%b8%d1%82%d1%80%d0%b0%d1%86%d0%b8%d0%b8' class='anchor'>#</a>
 </h2><p>В основе механизма доступа к шине CAN лежит алгоритм <strong>CSMA/CR</strong> (Carrier Sense Multiple Access with Collision Resolution) &ndash; множественный доступ с прослушиванием несущей и разрешением коллизий:</p>
 <ul>
@@ -587,19 +626,26 @@
 <li><strong>Error Passive</strong> &ndash; повышенный уровень ошибок;</li>
 <li><strong>Bus Off</strong> &ndash; отключен от шины.</li>
 </ul>
-<div class="sc-alert sc-alert-warning"><p>Узлы имеют счётчики ошибок, которые отслеживают различные типы ошибок (например, битовые ошибки, ошибки CRC и др.).</p>
-<p>Если количество ошибок превышает критический порог, узел переходит в состояние <strong>Bus Off</strong>, автоматически отключаясь от шины, чтобы не нарушать работу остальных устройств сети. В этом состоянии узел прекращает передачу данных и не может участвовать в арбитраже, пока не выполнит процедуру восстановления.</p>
-</div>
+<p>Узлы имеют счетчики ошибок, которые отслеживают различные типы ошибок (например, битовые ошибки, ошибки CRC и др.).<br>
+Если количество ошибок превышает критический порог, узел переходит в состояние Bus Off, автоматически отключаясь от шины, чтобы не нарушать работу остальных устройств сети. В этом состоянии узел прекращает передачу данных и не может участвовать в арбитраже, пока не выполнит процедуру восстановления.</p>
 <h1 id='стек-canopen'>Стек CANopen<a href='#%d1%81%d1%82%d0%b5%d0%ba-canopen' class='anchor'>#</a>
 </h1><h2 id='назначение-стека-canopen'>Назначение стека CANopen<a href='#%d0%bd%d0%b0%d0%b7%d0%bd%d0%b0%d1%87%d0%b5%d0%bd%d0%b8%d0%b5-%d1%81%d1%82%d0%b5%d0%ba%d0%b0-canopen' class='anchor'>#</a>
 </h2><p>Если CAN &ndash; это «провода и способ кричать», то <strong>CANopen</strong> &ndash; это «язык общения и правила вежливости». Это протокол прикладного уровня, который стандартизует, как именно данные (температура, скорость, команды) распределяются внутри сети.</p>
 <h2 id='используемые-уровни-osi-1'>Используемые уровни OSI<a href='#%d0%b8%d1%81%d0%bf%d0%be%d0%bb%d1%8c%d0%b7%d1%83%d0%b5%d0%bc%d1%8b%d0%b5-%d1%83%d1%80%d0%be%d0%b2%d0%bd%d0%b8-osi-1' class='anchor'>#</a>
-</h2><p>CANopen реализует прикладной уровень поверх CAN:</p>
-<ul>
-<li><strong>Application Layer (прикладной уровень)</strong> &ndash; определяет структуру данных, модель взаимодействия устройств, типы сервисов (PDO, SDO, NMT, EMCY), а также правила адресации узлов и структуру словаря объектов.</li>
-</ul>
-<p>CANopen не заменяет канальный уровень, а использует CAN как транспорт. Он стандартизует прикладную модель взаимодействия устройств поверх механизма передачи кадров CAN.</p>
-<h2 id='словарь-объектов'>Словарь объектов<a href='#%d1%81%d0%bb%d0%be%d0%b2%d0%b0%d1%80%d1%8c-%d0%be%d0%b1%d1%8a%d0%b5%d0%ba%d1%82%d0%be%d0%b2' class='anchor'>#</a>
+</h2><p>CANopen реализует прикладной уровень модели OSI.</p>
+<p><strong>Application Layer (прикладной уровень)</strong> &ndash; определяет структуру данных, модель взаимодействия устройств, типы сервисов (PDO, SDO, NMT, EMCY), а также правила адресации узлов и структуру словаря объектов.</p>
+<p>CANopen не заменяет канальный уровень, а использует CAN как транспорт. Он стандартизует прикладную модель взаимодействия устройств <strong>поверх</strong> механизма передачи кадров CAN. Ниже представлена структурная схема уровней взаимодействия.</p>
+<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">flowchart TD
+
+    APP[&#34;Application Layer&lt;br/&gt;(CANopen:&lt;br/&gt;NMT, PDO, SDO, EMCY, Object Dictionary)&#34;]
+
+    CAN[&#34;CAN (Data Link Layer, L2)&lt;br/&gt;Frame, Arbitration, Error Handling, CRC&#34;]
+
+    PHY[&#34;Physical Layer (L1)&lt;br/&gt;CAN_H / CAN_L&#34;]
+
+    APP --&gt;|Uses CAN for transport| CAN
+    CAN --&gt;|Physical transmission| PHY
+</code></pre><h2 id='словарь-объектов'>Словарь объектов<a href='#%d1%81%d0%bb%d0%be%d0%b2%d0%b0%d1%80%d1%8c-%d0%be%d0%b1%d1%8a%d0%b5%d0%ba%d1%82%d0%be%d0%b2' class='anchor'>#</a>
 </h2><p>Словарь объектов (Object Dictionary, OD) &ndash; это таблица (база данных), где каждой настройке или переменной присвоен индекс:</p>
 <ul>
 <li><strong>Index (16 бит)</strong> &ndash; адрес ячейки (например, 0x1000 &ndash; тип устройства);</li>
@@ -662,10 +708,10 @@
 </ul>
 <h2 id='адресация-узлов-node-id'>Адресация узлов (Node-ID)<a href='#%d0%b0%d0%b4%d1%80%d0%b5%d1%81%d0%b0%d1%86%d0%b8%d1%8f-%d1%83%d0%b7%d0%bb%d0%be%d0%b2-node-id' class='anchor'>#</a>
 </h2><p>Каждое устройство в сети получает уникальный идентификатор <strong>Node-ID</strong> (от 1 до 127). Значение 0 используется для широковещательных сообщений управления.</p>
+<p>Адресация узлов позволяет избежать конфликтов идентификаторов в сети. Основные принципы адресации узлов:</p>
 <ul>
 <li>Адресация в CANopen строится на комбинации типа сообщения (Function Code) и Node-ID.</li>
 <li>Идентификатор кадра (CAN ID) для SDO-запроса вычисляется по принципу: <em>COB-ID = Function Code + Node-ID</em>.</li>
-<li>Это позволяет избежать конфликтов идентификаторов в сети.</li>
 </ul>
 <h1 id='глоссарий'>Глоссарий<a href='#%d0%b3%d0%bb%d0%be%d1%81%d1%81%d0%b0%d1%80%d0%b8%d0%b9' class='anchor'>#</a>
 </h1><h2 id='протокол-can-нижний-уровень'>Протокол CAN (Нижний уровень)<a href='#%d0%bf%d1%80%d0%be%d1%82%d0%be%d0%ba%d0%be%d0%bb-can-%d0%bd%d0%b8%d0%b6%d0%bd%d0%b8%d0%b9-%d1%83%d1%80%d0%be%d0%b2%d0%b5%d0%bd%d1%8c' class='anchor'>#</a>
@@ -689,7 +735,7 @@
 <strong>Object Dictionary (OD)</strong> &ndash; структурированная таблица параметров CANopen-устройства, организованная по 16-битным индексам и 8-битным субиндексам.<br>
 <strong>Index</strong> &ndash; 16-битный адрес записи в словаре объектов CANopen.<br>
 <strong>Subindex</strong> &ndash; 8-битное расширение индекса, используемое для обращения к элементам массива или структуры.<br>
-<strong>SDO (Service Data Object)</strong> &ndash; механизм надёжного доступа к словарю объектов с подтверждением передачи.<br>
+<strong>SDO (Service Data Object)</strong> &ndash; механизм надежного доступа к словарю объектов с подтверждением передачи.<br>
 <strong>PDO (Process Data Object)</strong> &ndash; механизм быстрой передачи данных без подтверждения, предназначенный для обмена процессными переменными.<br>
 <strong>NMT (Network Management)</strong> &ndash; механизм управления состояниями узлов CANopen (Start, Stop, Pre-operational).<br>
 <strong>SYNC</strong> &ndash; сообщение синхронизации в CANopen, обеспечивающее одновременное обновление данных.<br>
