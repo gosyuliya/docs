@@ -1,5 +1,5 @@
 ---
-title: "CAN и CANopen: краткое инженерное введение для Embedded-разработчика"
+title: "CAN и CANopen: краткое инженерное введение для разработчиков встраиваемых систем"
 description: "Господарик Юлия"
 slug: "tech_2"
 weight: 2
@@ -201,6 +201,10 @@ flowchart TD
 
     APP -->|Uses CAN for transport| CAN
     CAN -->|Physical transmission| PHY
+
+    style APP fill:#f2f2f2,stroke:#000000,stroke-width:1.5px,rx:15,ry:15,font-size:14px,color:#000000
+    style CAN fill:#f2f2f2,stroke:#000000,stroke-width:1.5px,rx:15,ry:15,font-size:14px,color:#000000
+    style PHY fill:#f2f2f2,stroke:#000000,stroke-width:1.5px,rx:15,ry:15,font-size:14px,color:#000000
 ```
 
 ## Словарь объектов

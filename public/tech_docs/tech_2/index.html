@@ -3,7 +3,7 @@
   <head><meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="generator" content="Hugo 0.136.4">
-<meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="description" content="Господарик Юлия" /><title>CAN и CANopen: краткое инженерное введение для Embedded-разработчика | Господарик Юлия</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="description" content="Господарик Юлия" /><title>CAN и CANopen: краткое инженерное введение для разработчиков встраиваемых систем | Господарик Юлия</title>
 
 <link
   rel="icon"
@@ -339,8 +339,8 @@
       <a
         href='/docs/tech_docs/tech_2/'
         class='card-header-title'
-          title='CAN и CANopen: краткое инженерное введение для Embedded-разработчика'>
-        <i class='fa-solid fa-turn-up fa-rotate-90 fa-xs'></i><p class="pt-0 pb-0 pr-2 pl-0">CAN и CANopen: краткое инженерное введение для Embedded-разработчика</p></a></div>
+          title='CAN и CANopen: краткое инженерное введение для разработчиков встраиваемых систем'>
+        <i class='fa-solid fa-turn-up fa-rotate-90 fa-xs'></i><p class="pt-0 pb-0 pr-2 pl-0">CAN и CANopen: краткое инженерное введение для разработчиков встраиваемых систем</p></a></div>
           </div></li>
       </div>
     </div></ul></li>
@@ -466,7 +466,7 @@
 </div>
 <div id="sidebarMobileWrapper" class="column is-narrow is-hidden-desktop"></div>
 <div class="columns is-mobile is-marginless is-scroll-smooth has-toc" id="contentContainer">
-  <div class="column" id="content"><div id="contentTitle">CAN и CANopen: краткое инженерное введение для Embedded-разработчика</div>
+  <div class="column" id="content"><div id="contentTitle">CAN и CANopen: краткое инженерное введение для разработчиков встраиваемых систем</div>
 <h1 id='протокол-can'>Протокол CAN<a href='#%d0%bf%d1%80%d0%be%d1%82%d0%be%d0%ba%d0%be%d0%bb-can' class='anchor'>#</a>
 </h1><h2 id='назначение-и-область-применения'>Назначение и область применения<a href='#%d0%bd%d0%b0%d0%b7%d0%bd%d0%b0%d1%87%d0%b5%d0%bd%d0%b8%d0%b5-%d0%b8-%d0%be%d0%b1%d0%bb%d0%b0%d1%81%d1%82%d1%8c-%d0%bf%d1%80%d0%b8%d0%bc%d0%b5%d0%bd%d0%b5%d0%bd%d0%b8%d1%8f' class='anchor'>#</a>
 </h2><p>CAN-шина или <strong>CAN (Controller Area Network)</strong> &ndash; это промышленный стандарт последовательной сети, предназначенный для обмена данными между микроконтроллерами и устройствами без использования центрального компьютера (multi-master). Стандарт определен ISO (ISO 11898).</p>
@@ -645,6 +645,10 @@
 
     APP --&gt;|Uses CAN for transport| CAN
     CAN --&gt;|Physical transmission| PHY
+
+    style APP fill:#f2f2f2,stroke:#000000,stroke-width:1.5px,rx:15,ry:15,font-size:14px,color:#000000
+    style CAN fill:#f2f2f2,stroke:#000000,stroke-width:1.5px,rx:15,ry:15,font-size:14px,color:#000000
+    style PHY fill:#f2f2f2,stroke:#000000,stroke-width:1.5px,rx:15,ry:15,font-size:14px,color:#000000
 </code></pre><h2 id='словарь-объектов'>Словарь объектов<a href='#%d1%81%d0%bb%d0%be%d0%b2%d0%b0%d1%80%d1%8c-%d0%be%d0%b1%d1%8a%d0%b5%d0%ba%d1%82%d0%be%d0%b2' class='anchor'>#</a>
 </h2><p>Словарь объектов (Object Dictionary, OD) &ndash; это таблица (база данных), где каждой настройке или переменной присвоен индекс:</p>
 <ul>
