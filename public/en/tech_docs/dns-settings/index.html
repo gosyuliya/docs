@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html>
+  <head><script src="/docs/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=docs/livereload" data-no-instant defer></script><meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="generator" content="Hugo 0.136.4">
+<meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="description" content="Learn how our VPN protects your DNS requests from leaks and compare popular third-party DNS providers like Cloudflare, Google, and Quad9." /><title>How DNS Works with a VPN and Which Server to Choose | Господарик Юлия</title>
+
+<link
+  rel="icon"
+  href="/docs/images/favicon.png"
+  type="image/x-icon"
+/>
+<link
+    rel="stylesheet"
+    rel="preload"
+    type="text/css"
+    href="/docs/css/main.css"
+  /><link
+      rel="stylesheet"
+      type="text/css"
+      href="/docs/css/external/fontawesome.all.min.css"
+    /><link
+      rel="stylesheet"
+      type="text/css"
+      href="/docs/css/external/overlay-scrollbars/overlayscrollbars.min.css"
+    />
+</head>
+  <body onload="browserCompatibility()"><div id="navbarInfo" class="is-hidden modal-container">
+  <div class="modal-content-box modal-text-box">
+    <div class="card modal-title is-radiusless">
+      <div class="card-header">
+        <p class="card-header-title is-marginless">About</p>
+      </div>
+    </div>
+    <div class="modal-content-container">
+      <div class="modal-content-block is-block">
+</div>
+    </div>
+  </div>
+</div>
+<div id="navbarShortcuts" class="is-hidden modal-container">
+  <div class="modal-content-box modal-text-box"><div class="card modal-title is-radiusless">
+        <div class="card-header">
+          <p class="card-header-title is-marginless">Keyboard shortcuts</p>
+        </div>
+      </div>
+      <div class="modal-content-container">
+        <div class="modal-content-block"><div class="modal-content"><kbd>Shift</kbd><p>+</p><kbd>q</kbd></div>
+  <div class="modal-content">
+    <p class="has-text-weight-normal">Show current page QR code</p>
+  </div><div class="modal-content"><kbd>Escape</kbd></div>
+  <div class="modal-content">
+    <p class="has-text-weight-normal">Close modals</p>
+  </div><div class="modal-content"><kbd>Shift</kbd><p>+</p><kbd>i</kbd></div>
+  <div class="modal-content">
+    <p class="has-text-weight-normal">Show website information</p>
+  </div><div class="modal-content"><kbd>Shift</kbd><p>+</p><kbd>k</kbd></div>
+  <div class="modal-content">
+    <p class="has-text-weight-normal">Show shortcuts</p>
+  </div><div class="modal-content"><kbd>Shift</kbd><p>+</p><kbd>h</kbd></div>
+  <div class="modal-content">
+    <p class="has-text-weight-normal">Go to homepage</p>
+  </div><div class="modal-content"><kbd>Shift</kbd><p>+</p><kbd>f</kbd></div>
+  <div class="modal-content">
+    <p class="has-text-weight-normal">Find on website</p>
+  </div><div class="modal-content"><kbd>Shift</kbd><p>+</p><kbd>m</kbd></div>
+  <div class="modal-content">
+    <p class="has-text-weight-normal">Collapse/Uncollapse sidebar</p>
+  </div><div class="modal-content"><kbd>Shift</kbd><p>+</p><kbd>t</kbd></div>
+  <div class="modal-content">
+    <p class="has-text-weight-normal">Collapse/Uncollapse table of contents</p>
+  </div><div class="modal-content"><kbd>Shift</kbd><p>+</p><kbd>↑</kbd></div>
+  <div class="modal-content">
+    <p class="has-text-weight-normal">Go to the top of the page</p>
+  </div><div class="modal-content"><kbd>Shift</kbd><p>+</p><kbd>↓</kbd></div>
+  <div class="modal-content">
+    <p class="has-text-weight-normal">Go to the bottom of the page</p>
+  </div><div class="modal-content"><kbd>Shift</kbd><p>+</p><kbd>p</kbd></div>
+  <div class="modal-content">
+    <p class="has-text-weight-normal">Print current page</p>
+  </div></div>
+      </div></div>
+</div>
+<div id="modalContainer" class="is-hidden modal-container">
+  <div id="modal" class="modal-content-box"></div>
+</div>
+<nav id="navbar" class="navbar" role="navigation" aria-label="main navigation">
+  <div id="navbarItemsContainer" class="navbar-brand"><div id="globalLogoContainer" class="is-flex">
+  <a
+    id="globalLogo"
+    class="navbar-item navbar-item-standard is-paddingless"
+    href="/docs/en/"
+  >
+    <img
+      alt="Homepage"
+      src="/docs/images/logo.png"
+    />
+  </a>
+  <a
+    id="globalTouchLogo"
+    class="navbar-item navbar-item-standard is-paddingless"
+    href="/docs/en/"
+  >
+    <img
+      alt="Homepage"
+      src="/docs/images/logoTouch.png"
+    />
+  </a>
+</div>
+<div id="navbarItems" class="is-flex">
+      <div id="navbarItemsStart" class="is-flex">
+        <div id="searchContainer" class="navbar-item"><div class="control has-icons-left">
+  <span id="searchInput" class="autocomplete">
+    <input
+      id="search"
+      autocomplete="off"
+      class="input"
+      type="search"
+      placeholder="Search"
+    />
+  </span>
+  <span class="icon is-left">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </span>
+  <ul id="searchList" class="is-paddingless is-hidden"></ul>
+</div>
+</div>
+      </div>
+      <div id="navbarItemsEnd" class="is-flex is-invisible"><div class="navbar-item">
+  <a
+    id="printButton"
+    class="button navbar-item-standard"
+  >
+    <span class="icon-text">Print</span>
+    <span class="icon">
+      <i class="fa-solid fa-print fa-lg"></i>
+    </span>
+  </a>
+</div>
+<div class="navbar-item">
+  <a
+    id="qrCodeButton"
+    class="button navbar-item-standard"
+  >
+    <span class="icon-text">QR code</span>
+    <span class="icon">
+      <i class="fa-solid fa-qrcode fa-lg"></i>
+    </span>
+  </a>
+</div>
+<div class="navbar-item">
+  <a
+    id="shortcutsInfo"
+    trigger="navbarShortcuts"
+    class="button navbar-item-standard navbar-trigger"
+    title="Keyboard shortcuts"
+  >
+    <span class="icon-text">Shortcuts</span>
+    <span class="icon">
+      <i class="fa-solid fa-keyboard fa-lg"></i>
+    </span>
+  </a>
+</div><div class="navbar-item"><div
+  id="taxonomiesSelectorContainer"
+  class="dropdown is-right"
+>
+  <div class="dropdown-trigger">
+    <button
+      id="taxonomiesSelector"
+      class="button navbar-item-standard"
+      aria-haspopup="true"
+      aria-controls="dropdown-menu"
+    >
+      <span class="icon-text">Taxonomies</span>
+      <span class="icon">
+        <i class="fa-solid fa-tags fa-lg"></i>
+      </span>
+    </button>
+  </div>
+  <div
+    id="dropdown-menu-taxonomies"
+    class="dropdown-menu"
+    role="menu"
+  >
+    <div class="dropdown-content is-paddingless"><a
+              href="/docs/en/tags/"
+              class="dropdown-item has-text-weight-bold"
+            >Tags</a></div>
+  </div>
+</div>
+</div><div class="navbar-item"><div
+  id="langsSelectorContainer"
+  class="dropdown is-right"
+>
+  <div class="dropdown-trigger">
+    <button
+      id="langsSelector"
+      class="button navbar-item-standard"
+      aria-haspopup="true"
+      aria-controls="dropdown-menu"
+    >
+      <span class="icon-text">English</span>
+      <span class="icon">
+        <i class="fa-solid fa-globe fa-lg"></i>
+      </span>
+    </button>
+  </div>
+  <div
+    id="dropdown-menu-langs"
+    class="dropdown-menu"
+    role="menu"
+  >
+    <div class="dropdown-content is-paddingless"><a
+            href="/docs/tech_docs/dns-settings/"
+            class="dropdown-item has-text-weight-bold"
+          >Русский</a><div class="dropdown-item is-selected has-text-weight-bold">English</div></div>
+  </div>
+</div>
+</div><div class="navbar-item is-enforced-hidden">
+  <a
+    id="siteInfo"
+    trigger="navbarInfo"
+    class="button navbar-item-standard navbar-trigger"
+    title="About"
+  >
+    <span class="icon-text">About</span>
+    <span class="icon">
+      <i class="fa-solid fa-circle-question fa-lg"></i>
+    </span>
+  </a>
+</div>
+<div id="navbarExtend" class="navbar-item">
+  <div id="navbarExtendWrapper">
+    <a id="navbarExtendButton" class="button navbar-item-standard">
+      <span class="icon">
+        <i class="fa-solid fa-ellipsis fa-lg"></i>
+      </span>
+    </a>
+    <div id="navbarExtendItemsContainer">
+      <div id="navbarExtendItemsWrapper"><div class="navbar-item">
+  <a
+    id="printButtonExtend"
+    class="button navbar-item-standard"
+  >
+    <span class="icon-text">Print</span>
+    <span class="icon">
+      <i class="fa-solid fa-print fa-lg"></i>
+    </span>
+  </a>
+</div>
+<div class="navbar-item">
+  <a
+    id="qrCodeButtonExtend"
+    class="button navbar-item-standard"
+  >
+    <span class="icon-text">QR code</span>
+    <span class="icon">
+      <i class="fa-solid fa-qrcode fa-lg"></i>
+    </span>
+  </a>
+</div>
+<div class="navbar-item">
+  <a
+    id="shortcutsInfoExtend"
+    trigger="navbarShortcuts"
+    class="button navbar-item-standard navbar-trigger"
+    title="Keyboard shortcuts"
+  >
+    <span class="icon-text">Shortcuts</span>
+    <span class="icon">
+      <i class="fa-solid fa-keyboard fa-lg"></i>
+    </span>
+  </a>
+</div><div class="navbar-item"><div
+  id="taxonomiesSelectorContainerExtend"
+  class="dropdown is-right"
+>
+  <div class="dropdown-trigger">
+    <button
+      id="taxonomiesSelectorExtend"
+      class="button navbar-item-standard"
+      aria-haspopup="true"
+      aria-controls="dropdown-menu"
+    >
+      <span class="icon-text">Taxonomies</span>
+      <span class="icon">
+        <i class="fa-solid fa-tags fa-lg"></i>
+      </span>
+    </button>
+  </div>
+  <div
+    id="dropdown-menu-taxonomiesExtend"
+    class="dropdown-menu"
+    role="menu"
+  >
+    <div class="dropdown-content is-paddingless"><a
+              href="/docs/en/tags/"
+              class="dropdown-item has-text-weight-bold"
+            >Tags</a></div>
+  </div>
+</div>
+</div><div class="navbar-item"><div
+  id="langsSelectorContainerExtend"
+  class="dropdown is-right"
+>
+  <div class="dropdown-trigger">
+    <button
+      id="langsSelectorExtend"
+      class="button navbar-item-standard"
+      aria-haspopup="true"
+      aria-controls="dropdown-menu"
+    >
+      <span class="icon-text">English</span>
+      <span class="icon">
+        <i class="fa-solid fa-globe fa-lg"></i>
+      </span>
+    </button>
+  </div>
+  <div
+    id="dropdown-menu-langsExtend"
+    class="dropdown-menu"
+    role="menu"
+  >
+    <div class="dropdown-content is-paddingless"><a
+            href="/docs/tech_docs/dns-settings/"
+            class="dropdown-item has-text-weight-bold"
+          >Русский</a><div class="dropdown-item is-selected has-text-weight-bold">English</div></div>
+  </div>
+</div>
+</div><div class="navbar-item is-enforced-hidden">
+  <a
+    id="siteInfoExtend"
+    trigger="navbarInfo"
+    class="button navbar-item-standard navbar-trigger"
+    title="About"
+  >
+    <span class="icon-text">About</span>
+    <span class="icon">
+      <i class="fa-solid fa-circle-question fa-lg"></i>
+    </span>
+  </a>
+</div>
+</div>
+    </div>
+  </div>
+</div>
+</div>
+    </div>
+  </div>
+</nav>
+<div id="navbarOverlay"></div>
+<div
+      class="columns is-mobile is-paddingless is-marginless"
+      id="mainContainer"
+    ><div
+  id="sidebarContainer"
+  class="column is-narrow is-paddingless is-marginless"
+>
+  <div id="sidebarWrapper" class="is-fixed">
+    <div id="sidebar" class="is-marginless">
+      <aside class="menu is-paddingless is-marginless">
+        <ul class="menu-list is-marginless is-paddingless"><div class="card is-fs-expandable-icon is-sidebar-active"><div class="card-header">
+      <a
+        href='/docs/en/tech_docs/'
+        class='card-header-title'>
+        <i class='fa-solid fa-code-pull-request fa-lg'></i></a></div>
+      </div><div class="is-expandable">
+      <div class="is-sidebar-list-wrapper"><li class="is-marginless is-tree-active is-entries-expandable is-entries-expanded"><div
+            class="card"><div class="card-header">
+      <a
+        href='/docs/en/tech_docs/'
+        class='card-header-title'
+          title='Техническая документация'>
+        <i class='fa-solid fa-code-pull-request fa-lg'></i><p class="pt-0 pb-0 pr-2 pl-1">Техническая документация</p></a><a class="card-header-icon is-icon-expandable is-paddingless is-icon-expanded">
+                <span class='icon'></span>
+              </a>
+            </div>
+          </div><ul class="is-marginless is-tree-active"><div class="">
+      <div class=""><li class="is-marginless"><div
+            class="card"><div class="card-header is-single-link">
+      <a
+        href='/docs/en/tech_docs/tech_2/'
+        class='card-header-title'
+          title='CAN и CANopen'>
+        <i class='fa-solid fa-turn-up fa-rotate-90 fa-xs'></i><p class="pt-0 pb-0 pr-2 pl-0">CAN и CANopen</p></a></div>
+          </div></li>
+      </div>
+    </div><div class="">
+      <div class=""><li class="is-marginless"><div
+            class="card"><div class="card-header is-single-link">
+      <a
+        href='/docs/en/tech_docs/tech_1/'
+        class='card-header-title'
+          title='Сервисы с OPA'>
+        <i class='fa-solid fa-turn-up fa-rotate-90 fa-xs'></i><p class="pt-0 pb-0 pr-2 pl-0">Сервисы с OPA</p></a></div>
+          </div></li>
+      </div>
+    </div><div class="">
+      <div class=""><li class="is-marginless"><div
+            class="card is-sidebar-active"id='sidebarActiveEntry'><div class="card-header is-single-link">
+      <a
+        href='/docs/en/tech_docs/dns-settings/'
+        class='card-header-title'
+          title='DNS Settings'>
+        <i class='fa-solid fa-turn-up fa-rotate-90 fa-xs'></i><p class="pt-0 pb-0 pr-2 pl-0">DNS Settings</p></a></div>
+          </div></li>
+      </div>
+    </div></ul></li>
+      </div>
+    </div></ul>
+      </aside>
+    </div>
+    <div id="sidebarCollapsible" class="is-marginless">
+      <div class="card is-uncollapse-action">
+        <div
+          id="sidebarUncollapse"
+          class="card-header is-single-link"
+          title="Collapse/Uncollapse sidebar"
+        >
+          <a class="card-header-title">
+            <i class="fa-solid fa-angles-right fa-lg"></i>
+          </a>
+        </div>
+      </div>
+      <div class="card is-collapse-action">
+        <div
+          id="sidebarCollapse"
+          class="card-header is-single-link"
+          title="Collapse/Uncollapse sidebar"
+        >
+          <a class="card-header-title">
+            <i class="fa-solid fa-angles-left fa-lg"></i>
+            <p>Collapse sidebar</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="sidebarMobileWrapper" class="column is-narrow is-hidden-desktop"></div>
+<div class="columns is-mobile is-marginless is-scroll-smooth has-toc" id="contentContainer">
+  <div class="column" id="content"><div id="contentTitle">How DNS Works with a VPN and Which Server to Choose</div>
+<p><strong>DNS (Domain Name System)</strong> translates human-friendly website names (like <code>example.com</code>) into numerical IP addresses that devices use to locate each other online. Without DNS, you would have to memorize long strings of numbers instead of regular web addresses.</p>
+<p>By default, your Internet Service Provider (ISP) handles your DNS requests. This allows your ISP to see which websites you visit, even when your actual traffic is encrypted. Our VPN client prevents this and lets you control which servers process your requests.</p>
+<h2 id='how-dns-works-when-connected-to-a-vpn'>How DNS Works When Connected to a VPN<a href='#how-dns-works-when-connected-to-a-vpn' class='anchor'>#</a>
+</h2><p>When you connect to a VPN, the app automatically routes all your DNS requests through an encrypted tunnel. This protects you from <strong>DNS leaks</strong>—a situation where your traffic goes through the VPN, but your domain lookups still go directly to your ISP.</p>
+<p><strong>Here is what happens when you open a website:</strong></p>
+<ol>
+<li>You type a website address into your browser.</li>
+<li>The request is encrypted and sent to the VPN server.</li>
+<li>The VPN server queries the selected DNS server to find the website&rsquo;s IP address.</li>
+<li>You connect to the site, while your ISP only sees that you are connected to a VPN.</li>
+</ol>
+<h2 id='which-dns-server-should-you-choose'>Which DNS Server Should You Choose?<a href='#which-dns-server-should-you-choose' class='anchor'>#</a>
+</h2><p>In the app settings, you can keep our built-in DNS or switch to a third-party provider. The best choice depends on your priorities: maximum speed, extra privacy, or content filtering.</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">DNS Provider</th>
+          <th style="text-align: left">IPv4 Addresses (Primary / Secondary)</th>
+          <th style="text-align: left">Key Feature</th>
+          <th style="text-align: left">Best For</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><strong>Our VPN DNS</strong> <em>(Default)</em></td>
+          <td style="text-align: left">Configured automatically</td>
+          <td style="text-align: left">Full tunnel integration and strict no-logs policy</td>
+          <td style="text-align: left">Users who want reliable protection without manual setup</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Cloudflare</strong></td>
+          <td style="text-align: left"><code>1.1.1.1</code><br><code>1.0.0.1</code></td>
+          <td style="text-align: left">Fastest response times among public DNS services and strong privacy focus</td>
+          <td style="text-align: left">Users who prioritize maximum page-loading speed</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Google Public DNS</strong></td>
+          <td style="text-align: left"><code>8.8.8.8</code><br><code>8.8.4.4</code></td>
+          <td style="text-align: left">High global reliability and built-in DDoS protection</td>
+          <td style="text-align: left">Users looking for a proven, stable option across any network</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Quad9</strong></td>
+          <td style="text-align: left"><code>9.9.9.9</code><br><code>149.112.112.112</code></td>
+          <td style="text-align: left">Automatic blocking of malicious and phishing domains</td>
+          <td style="text-align: left">Users who want extra protection against malware and scams</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>AdGuard DNS</strong></td>
+          <td style="text-align: left"><code>94.140.14.14</code><br><code>94.140.15.15</code></td>
+          <td style="text-align: left">Network-level blocking of ads, trackers, and analytics</td>
+          <td style="text-align: left">Users who want to remove ads in browsers and apps</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>OpenDNS (Cisco)</strong></td>
+          <td style="text-align: left"><code>208.67.222.222</code><br><code>208.67.220.220</code></td>
+          <td style="text-align: left">Phishing protection and customizable parental controls</td>
+          <td style="text-align: left">Families and users who need content filtering</td>
+      </tr>
+  </tbody>
+</table>
+<blockquote>
+<p><strong>Tip:</strong> If you are unsure which option to pick, keep the default setting. Our built-in DNS is already optimized for the best balance of speed and privacy.</p>
+</blockquote>
+<h2 id='how-to-change-your-dns-in-the-app'>How to Change Your DNS in the App<a href='#how-to-change-your-dns-in-the-app' class='anchor'>#</a>
+</h2><p>If you decide to use a custom DNS server, follow these steps:</p>
+<ol>
+<li>Open the VPN app and go to <strong>Settings</strong> (the gear icon).</li>
+<li>Select the <strong>Connection</strong> or <strong>Network</strong> tab <em>(the exact name depends on your operating system)</em>.</li>
+<li>Find <strong>Custom DNS</strong> and toggle it on.</li>
+<li>Enter the primary and secondary IPv4 addresses from the table above.</li>
+<li>Save your changes and reconnect to the VPN for the new settings to take effect.</li>
+</ol>
+<h2 id='frequently-asked-questions'>Frequently Asked Questions<a href='#frequently-asked-questions' class='anchor'>#</a>
+</h2><h3 id='will-a-third-party-dns-slow-down-my-internet'>Will a third-party DNS slow down my internet?<a href='#will-a-third-party-dns-slow-down-my-internet' class='anchor'>#</a>
+</h3><p>Usually, no. Major public DNS services like Cloudflare or Google are often faster than local ISP servers. However, if the DNS server you choose is located far away from your VPN server, your connection latency might increase slightly.</p>
+<h3 id='what-should-i-do-if-websites-stop-loading-after-changing-my-dns'>What should I do if websites stop loading after changing my DNS?<a href='#what-should-i-do-if-websites-stop-loading-after-changing-my-dns' class='anchor'>#</a>
+</h3><p>Double-check the IP addresses you entered for typos. If the addresses are correct, the selected DNS server might be temporarily down or blocked on your current network. Switch the DNS setting back to <strong>Default</strong> and reconnect to the VPN.</p>
+
+<style>
+  #disqus_thread {
+    max-width: 900px;
+    margin: 40px auto;
+    padding-top: 40px;
+  }
+</style>    
+
+    <div id="disqus_thread"></div>
+    <script>
+      var disqus_config = function () {
+        this.page.url = "http:\/\/localhost:1313\/docs\/en\/tech_docs\/dns-settings\/";
+        this.page.identifier = "http:\/\/localhost:1313\/docs\/en\/tech_docs\/dns-settings\/";
+      };
+      (function() {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://gosyuliya.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div><div class="column is-sticky is-paddingless" id="tocWrapper">
+  <div class="is-paddingless" id="tocContainer">
+    <div class="toc-header">
+      <h6 class="toc-title is-marginless">On this page:</h6>
+      <i
+        title="Back to top"
+        id="tocBackToTop"
+        class="fa-solid fa-circle-arrow-up"
+      ></i>
+    </div>
+    <div id="tocContent">
+      <div id="toc"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#how-dns-works-when-connected-to-a-vpn">How DNS Works When Connected to a VPN</a></li>
+        <li><a href="#which-dns-server-should-you-choose">Which DNS Server Should You Choose?</a></li>
+        <li><a href="#how-to-change-your-dns-in-the-app">How to Change Your DNS in the App</a></li>
+        <li><a href="#frequently-asked-questions">Frequently Asked Questions</a>
+          <ul>
+            <li><a href="#will-a-third-party-dns-slow-down-my-internet">Will a third-party DNS slow down my internet?</a></li>
+            <li><a href="#what-should-i-do-if-websites-stop-loading-after-changing-my-dns">What should I do if websites stop loading after changing my DNS?</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+      <div id="taxonomies"><div class="taxonomy-wrapper"></div><div class="taxonomy-wrapper"><div class="toc-header">
+                  <h6 class="toc-title is-marginless">Tags</h6>
+                </div><a href="/docs/en/tags/dns/" class="taxonomy"
+                    ><i class="fa-solid fa-circle-dot"></i>Dns</a
+                  ><a href="/docs/en/tags/privacy/" class="taxonomy"
+                    ><i class="fa-solid fa-circle-dot"></i>Privacy</a
+                  ><a href="/docs/en/tags/configuration/" class="taxonomy"
+                    ><i class="fa-solid fa-circle-dot"></i>Configuration</a
+                  ><a href="/docs/en/tags/troubleshooting/" class="taxonomy"
+                    ><i class="fa-solid fa-circle-dot"></i>Troubleshooting</a
+                  ></div></div>
+    </div>
+  </div>
+  <div
+    class="is-paddingless"
+    id="tocCollapsible"
+    title="Collapse/Uncollapse table of contents"
+  >
+    <i class="fa-solid fa-angles-right fa-lg"></i>
+  </div>
+</div>
+</div>
+</div><script type='text/javascript'>
+  const baseUrl = new URL('\/en', 'http:\/\/localhost:1313\/docs\/').href;
+  const codeCopyBefore = 'Copy to clipboard';
+  const codeCopyAfter = 'Copied to clipboard';
+  const svgDownloadLabel = 'Download as SVG';
+  const helperLoadingLabel = 'Loading';
+  const searchNoResults = 'No result found';
+  const introNextLabel = 'Next';
+  const introPrevLabel = 'Previous';
+  const introSkipLabel = '✗';
+  const introDoneLabel = 'Done';
+  const printLabel = 'Print current page';
+  const qrCodeLabel = 'Show current page QR code';
+  const naCommonLabel = 'Not available';
+  const jsoneditorValidateError = 'Form error';
+</script>
+<script
+      type="module"
+      src="/docs/js/theme/modules/const.min.js"
+    ></script><script
+      type="module"
+      src="/docs/js/theme/modules/helpers.min.js"
+    ></script><script
+      type="module"
+      src="/docs/js/theme/modules/helpersGlobal.min.js"
+    ></script><script
+      type="module"
+      src="/docs/js/theme/init.min.js"
+    ></script><script
+      type="module"
+      src="/docs/js/theme/navbar.min.js"
+    ></script><script
+      type="module"
+      src="/docs/js/theme/print.min.js"
+    ></script><script
+      type="module"
+      src="/docs/js/theme/qrcode.min.js"
+    ></script><script
+      type="module"
+      src="/docs/js/theme/search.min.js"
+    ></script><script
+      type="module"
+      src="/docs/js/theme/shortcuts.min.js"
+    ></script><script
+      type="module"
+      src="/docs/js/theme/sidebar.min.js"
+    ></script><script
+      type="module"
+      src="/docs/js/theme/toc.min.js"
+    ></script><script
+      type="text/javascript"
+      src="/docs/js/theme/browserCompatibility.min.js"
+    ></script><script
+      type="text/javascript"
+      src="/docs/js/external/flexsearch/flexsearch.bundle.min.js"
+    ></script><script
+      type="text/javascript"
+      src="/docs/js/external/qrious/qrious.min.js"
+    ></script><script
+      type="text/javascript"
+      src="/docs/js/external/overlay-scrollbars/overlayscrollbars.min.js"
+    ></script>
+</body>
+</html>
+
+<link rel="stylesheet" href="/docs/css/custom.css">
+
+
+

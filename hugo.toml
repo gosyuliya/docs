@@ -3,18 +3,26 @@ baseURL = "https://gosyuliya.github.io/docs/"
 title = "Господарик Юлия"
 theme = "shadocs"
 rss = true
-defaultContentLanguage = "ru"
 enableEmoji            = false
 enableGitInfo          = true
 metaDataFormat         = "yaml"
 disqusShortname = "gosyuliya"
+defaultContentLanguage = "ru"
 
 [languages]
   [languages.ru]
     languageName = "Русский"
     contentDir = "content/ru"
+    weight = 1
     [languages.ru.params]
       timeFormat = "02 января 2006"
+
+  [languages.en]
+    languageName = "English"
+    contentDir = "content/en"
+    weight = 2
+    [languages.en.params]
+      timeFormat = "January 2, 2006"
 
 [params]
   logo = "images/logo.png"

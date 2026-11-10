@@ -1,8 +1,9 @@
 ---
 title: "Шаблоны для конфигурации backend сервисов с OPA"
+linkTitle: "Сервисы с OPA"
 description: "Господарик Юлия"
 slug: "tech_1"
-weight: 1
+weight: 3
 ---
 
 # HELM chart c шаблонами для ACR PDP sidecar

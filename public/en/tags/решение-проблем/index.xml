@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Решение-Проблем on Господарик Юлия</title>
+    <link>http://localhost:1313/docs/en/tags/%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D0%B5-%D0%BF%D1%80%D0%BE%D0%B1%D0%BB%D0%B5%D0%BC/</link>
+    <description>Recent content in Решение-Проблем on Господарик Юлия</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="http://localhost:1313/docs/en/tags/%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D0%B5-%D0%BF%D1%80%D0%BE%D0%B1%D0%BB%D0%B5%D0%BC/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CAN и CANopen: краткое инженерное введение для разработчиков встраиваемых систем</title>
+      <link>http://localhost:1313/docs/en/tech_docs/tech_2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/en/tech_docs/tech_2/</guid>
+      <description>&lt;h1 id=&#39;протокол-can&#39;&gt;Протокол CAN&lt;a href=&#39;#%d0%bf%d1%80%d0%be%d1%82%d0%be%d0%ba%d0%be%d0%bb-can&#39; class=&#39;anchor&#39;&gt;#&lt;/a&gt;&#xA;&lt;/h1&gt;&lt;h2 id=&#39;назначение-и-область-применения&#39;&gt;Назначение и область применения&lt;a href=&#39;#%d0%bd%d0%b0%d0%b7%d0%bd%d0%b0%d1%87%d0%b5%d0%bd%d0%b8%d0%b5-%d0%b8-%d0%be%d0%b1%d0%bb%d0%b0%d1%81%d1%82%d1%8c-%d0%bf%d1%80%d0%b8%d0%bc%d0%b5%d0%bd%d0%b5%d0%bd%d0%b8%d1%8f&#39; class=&#39;anchor&#39;&gt;#&lt;/a&gt;&#xA;&lt;/h2&gt;&lt;p&gt;CAN-шина или &lt;strong&gt;CAN (Controller Area Network)&lt;/strong&gt; &amp;ndash; это промышленный стандарт последовательной сети, предназначенный для обмена данными между микроконтроллерами и устройствами без использования центрального компьютера (multi-master). Стандарт определен ISO (ISO 11898).&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Ключевая идея&lt;/strong&gt; &amp;ndash; несколько устройств делят одну дифференциальную линию и сами договариваются, кто передает первым. При этом:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;нет коллизий с потерей кадра;&lt;/li&gt;&#xA;&lt;li&gt;приоритет сообщения определяется его идентификатором;&lt;/li&gt;&#xA;&lt;li&gt;ошибки детектируются аппаратно;&lt;/li&gt;&#xA;&lt;li&gt;неисправный узел автоматически изолируется.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;Область применения&lt;/strong&gt; &amp;ndash; автомобилестроение (ABS, двигатель), авиация, спутниковые системы (CubeSat, LEO-группировки), промышленная автоматизация, лифтовое оборудование.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

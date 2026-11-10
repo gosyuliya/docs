@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Troubleshooting on Господарик Юлия</title>
+    <link>http://localhost:1313/docs/en/tags/troubleshooting/</link>
+    <description>Recent content in Troubleshooting on Господарик Юлия</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 09 Nov 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/docs/en/tags/troubleshooting/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How DNS Works with a VPN and Which Server to Choose</title>
+      <link>http://localhost:1313/docs/en/tech_docs/dns-settings/</link>
+      <pubDate>Mon, 09 Nov 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/en/tech_docs/dns-settings/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;DNS (Domain Name System)&lt;/strong&gt; translates human-friendly website names (like &lt;code&gt;example.com&lt;/code&gt;) into numerical IP addresses that devices use to locate each other online. Without DNS, you would have to memorize long strings of numbers instead of regular web addresses.&lt;/p&gt;&#xA;&lt;p&gt;By default, your Internet Service Provider (ISP) handles your DNS requests. This allows your ISP to see which websites you visit, even when your actual traffic is encrypted. Our VPN client prevents this and lets you control which servers process your requests.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

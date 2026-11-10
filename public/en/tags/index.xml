@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Господарик Юлия</title>
+    <link>http://localhost:1313/docs/en/tags/</link>
+    <description>Recent content in Tags on Господарик Юлия</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 09 Nov 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/docs/en/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Configuration</title>
+      <link>http://localhost:1313/docs/en/tags/configuration/</link>
+      <pubDate>Mon, 09 Nov 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/en/tags/configuration/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Dns</title>
+      <link>http://localhost:1313/docs/en/tags/dns/</link>
+      <pubDate>Mon, 09 Nov 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/en/tags/dns/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Privacy</title>
+      <link>http://localhost:1313/docs/en/tags/privacy/</link>
+      <pubDate>Mon, 09 Nov 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/en/tags/privacy/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Troubleshooting</title>
+      <link>http://localhost:1313/docs/en/tags/troubleshooting/</link>
+      <pubDate>Mon, 09 Nov 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/en/tags/troubleshooting/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>CAN</title>
+      <link>http://localhost:1313/docs/en/tags/can/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/en/tags/can/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>CANopen</title>
+      <link>http://localhost:1313/docs/en/tags/canopen/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/en/tags/canopen/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Решение-Проблем</title>
+      <link>http://localhost:1313/docs/en/tags/%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D0%B5-%D0%BF%D1%80%D0%BE%D0%B1%D0%BB%D0%B5%D0%BC/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/en/tags/%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D0%B5-%D0%BF%D1%80%D0%BE%D0%B1%D0%BB%D0%B5%D0%BC/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Теория</title>
+      <link>http://localhost:1313/docs/en/tags/%D1%82%D0%B5%D0%BE%D1%80%D0%B8%D1%8F/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/en/tags/%D1%82%D0%B5%D0%BE%D1%80%D0%B8%D1%8F/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

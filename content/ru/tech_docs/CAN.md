@@ -1,8 +1,9 @@
 ---
 title: "CAN и CANopen: краткое инженерное введение для разработчиков встраиваемых систем"
-description: "Господарик Юлия"
-slug: "tech_2"
+linkTitle: "CAN и CANopen"
+description: "Кратко о протоколе CAN и стеке CANOpen"
 weight: 2
+tags: ["CAN", "CANopen", "теория", "решение-проблем"]
 ---
 
 # Протокол CAN 
@@ -28,21 +29,17 @@ CAN-шина или **CAN (Controller Area Network)** -- это промышле
 
 Упрощенная структура стандартного кадра представлена на диаграмме. Каждое поле -- это отдельный этап жизни одного сообщения на CAN-шине.
 
-<svg width="900" height="80" viewBox="0 0 900 80" xmlns="http://www.w3.org">
-  <!-- Определяем стрелку (маркер) -->
+<!-- HTML -->
+<svg width="900" height="80" viewBox="0 0 900 80" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
       <polygon points="0 0, 10 3.5, 0 7" fill="#666" />
     </marker>
   </defs>
-
-  <!-- Стили для текста и блоков -->
   <style>
     rect { fill: #f9f9f9; stroke: #333; stroke-width: 1.5; }
     text { font-family: sans-serif; font-size: 12px; text-anchor: middle; dominant-baseline: middle; }
   </style>
-
-  <!-- Блоки -->
   <g transform="translate(10, 20)">
     <rect width="50" height="40" rx="5" /> <text x="25" y="20">SOF</text>
     <line x1="50" y1="20" x2="65" y2="20" stroke="#666" marker-end="url(#arrowhead)" />
@@ -75,6 +72,7 @@ CAN-шина или **CAN (Controller Area Network)** -- это промышле
     </g>
   </g>
 </svg>
+<!-- /HTML -->
 
 Таблица 1 -- Детализация полей стандартного кадра
 <style>
@@ -110,7 +108,7 @@ CAN-шина или **CAN (Controller Area Network)** -- это промышле
     <tr>
         <td>Arbitration Field</td>
         <td>12</td>
-        <td><strong>Поле арбитража</strong>. Включает 11-битный идентификатор (ID) и бит RTR. Определяет приоритет сообщения при одновременном доступе к шине.<br><i>Бит RTR используется для запроса данных от другого узла. В обычных данных он доминантный («0»)</td>
+        <td><strong>Поле арбитража</strong>. Включает 11-битный идентификатор (ID) и бит RTR. Определяет приоритет сообщения при одновременном доступе к шине.<br><i>Бит RTR используется для запроса данных от другого узла. В обычных данных он доминантный («0»)</i></td>
     </tr>
     <tr>
         <td>Control Field</td>
@@ -231,6 +229,7 @@ flowchart TD
   .simple-table th:nth-child(2) {
     width: auto;
     white-space: normal;
+  }
 </style>
 
 <table class="simple-table">
